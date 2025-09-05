@@ -28,7 +28,7 @@ add_subdirectory(tools/injector)
 # 此条命令仅用于作者打包 avz，仅编译 avz 请注释这条命令
 add_custom_target(PackageAvz ALL
     COMMAND powershell -c "\
-        cd ${PROJECT_SOURCE_DIR}; \
+        cd '${PROJECT_SOURCE_DIR}'; \
         rm bin/*.dll; \
         Compress-Archive -Path bin/,inc/,src/,metadata.json -Force -DestinationPath release/env2/nightly.zip"
     DEPENDS avz injector

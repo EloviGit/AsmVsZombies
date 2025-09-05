@@ -1,4 +1,4 @@
-#include "avz_multi_platform.h"
+#include "libavz.h"
 #include HEADER_ORIGIN(avz_asm.h)
 
 namespace NS_ORIGIN(AAsm) {

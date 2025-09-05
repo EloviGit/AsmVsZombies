@@ -3,6 +3,7 @@
 
 #define __AVZ_VERSION__ 250823
 
+#include "avz_multi_platform.h"
 #include "avz_asm.h"
 #include "avz_card.h"
 #include "avz_click.h"
