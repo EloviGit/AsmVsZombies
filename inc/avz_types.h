@@ -2,6 +2,7 @@
 #define __AVZ_TYPES_H__
 
 #include <cstdint>
+#include <cstddef>
 #include <format>
 #include <functional>
 #include <set>

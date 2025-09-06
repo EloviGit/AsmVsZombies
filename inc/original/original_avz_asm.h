@@ -2,52 +2,57 @@
 #define __ORIGINAL_AVZ_ASM_H__
 
 #include "avz_multi_platform.h"
-#include "avz_pvz_struct.h"
-#include "avz_types.h"
+#include HEADER_ORIGINAL(avz_pvz_struct.h)
+#include HEADER_ORIGINAL(avz_types.h)
 
 #define ASaveAllRegister "esp", "eax", "ebx", "ecx", "edx", "esi", "edi"
 
+NS_ORIGINAL_BEGIN(avz_asm)
+USING_NS_ORIGINAL(avz_pvz_struct)
+USING_NS_ORIGINAL(avz_types)
+
 // 使用汇编代码调用 PvZ 游戏内部的函数
-namespace NS_ORIGIN(AAsm) {
+class AAsm {
+public:
     // key 1: left click
     // key -1: right click
     // key 3: middle click
-    void ClickScene(AMainObject* level, int x, int y, int key);
+    static void ClickScene(AMainObject* level, int x, int y, int key);
 
-    void Click(AMouseWindow* mw, int x, int y, int key);
+    static void Click(AMouseWindow* mw, int x, int y, int key);
 
-    void SaveData();
+    static void SaveData();
 
-    void LoadData();
+    static void LoadData();
 
     // 进入战斗页面，开始游戏
-    void Rock();
+    static void Rock();
 
-    void MouseClick(int x, int y, int key);
+    static void MouseClick(int x, int y, int key);
 
     // 鼠标按下
-    void MouseDown(int x, int y, int key);
+    static void MouseDown(int x, int y, int key);
 
     // 鼠标松开
-    void MouseUp(int x, int y, int key);
+    static void MouseUp(int x, int y, int key);
 
     // 移动鼠标
-    void MouseMove(int x, int y);
+    static void MouseMove(int x, int y);
 
     // 发射炮
-    void Fire(int x, int y, int rank);
+    static void Fire(int x, int y, int rank);
 
     // 种卡函数
-    void PlantCard(int x, int y, int index);
+    static void PlantCard(int x, int y, int index);
 
     // 铲除函数
-    void ShovelPlant(int x, int y);
+    static void ShovelPlant(int x, int y);
 
     // 选择卡片
-    void ChooseCard(int card_type);
+    static void ChooseCard(int card_type);
 
     // 选择模仿者卡片
-    void ChooseImitatorCard(int card_type);
+    static void ChooseImitatorCard(int card_type);
 
     enum PlantReject {
         NIL, // 没有植物, 即可以种植
@@ -72,64 +77,64 @@ namespace NS_ORIGIN(AAsm) {
     // if(AAsm::GetPlantRejectType(AXRK_1, 1, 1) == AAsm::NIL) { // NIL 表示可以种植物， 检查一下 2 行 2 列是否可以种植物
     //
     // }
-    __ANodiscard int GetPlantRejectType(int cardType, int row, int col);
+    __ANodiscard static int GetPlantRejectType(int cardType, int row, int col);
 
     // 战斗界面刷新函数
-    void GameFightLoop();
+    static void GameFightLoop();
 
     // 游戏整体刷新函数
-    void GameTotalLoop();
+    static void GameTotalLoop();
 
     // 游戏最完整刷新函数，带帧率控制
-    void GameSleepLoop();
+    static void GameSleepLoop();
 
     // 控件管理器在一次更新中递归地更新其中所有的控件
-    void UpdateFrame();
+    static void UpdateFrame();
 
-    void ClearObjectMemory();
+    static void ClearObjectMemory();
 
-    void CheckFightExit();
+    static void CheckFightExit();
 
-    void KillZombiesPreview();
+    static void KillZombiesPreview();
 
-    void SetImprovePerformance(bool is_improve_performance);
+    static void SetImprovePerformance(bool is_improve_performance);
 
-    void ReleaseMouse();
+    static void ReleaseMouse();
 
-    __ANodiscard int GridToAbscissa(int row, int col);
+    __ANodiscard static int GridToAbscissa(int row, int col);
 
-    __ANodiscard int GridToOrdinate(int row, int col);
+    __ANodiscard static int GridToOrdinate(int row, int col);
 
     // 放置一个植物
     // PutPlant(1, 1, ANGT_30) ----- 在2行2列放置一个南瓜头
-    APlant* PutPlant(int row, int col, APlantType type);
+    static APlant* PutPlant(int row, int col, APlantType type);
 
     // 放置一个僵尸
     // PutZombie(1, 1, APJ_0) ----- 在2行2列放置一个普通僵尸
-    AZombie* PutZombie(int row, int col, AZombieType type);
+    static AZombie* PutZombie(int row, int col, AZombieType type);
 
-    void RemovePlant(APlant* plant);
+    static void RemovePlant(APlant* plant);
 
-    void KillZombie(AZombie* zombie);
-    void RemoveZombie(AZombie* zombie);
+    static void KillZombie(AZombie* zombie);
+    static void RemoveZombie(AZombie* zombie);
 
-    bool IsSeedUsable(ASeed* seed);
-    int GetSeedSunVal(int type, int iType);
-    void UpdateMousePos();
+    static bool IsSeedUsable(ASeed* seed);
+    static int GetSeedSunVal(int type, int iType);
+    static void UpdateMousePos();
 
-    void MakePvzString(const char* str, void* strObj);
-    void FreePvzString(void* strObj);
-    void MakeNewBoard();
-    void LoadGame(const std::string& file);
-    void SaveGame(const std::string& file);
+    static void MakePvzString(const char* str, void* strObj);
+    static void FreePvzString(void* strObj);
+    static void MakeNewBoard();
+    static void LoadGame(const std::string& file);
+    static void SaveGame(const std::string& file);
 
-    bool CanSpawnZombies(int row);
-    bool IsNight();
-    bool IsRoof();
-    bool HasGrave();
-    bool HasPool();
+    static bool CanSpawnZombies(int row);
+    static bool IsNight();
+    static bool IsRoof();
+    static bool HasGrave();
+    static bool HasPool();
 
-    int ZombieTotalHp(int wave);
+    static int ZombieTotalHp(int wave);
 
     enum GameMode {
         ADVENTURE,
@@ -209,10 +214,10 @@ namespace NS_ORIGIN(AAsm) {
     };
 
     // 进入游戏
-    void EnterGame(int gameMode);
+    static void EnterGame(int gameMode);
 
     // 直接返回主界面
-    void DoBackToMain();
+    static void DoBackToMain();
 
     enum GameScenes {
         LOADING,
@@ -226,38 +231,39 @@ namespace NS_ORIGIN(AAsm) {
     };
 
     // 内置生成僵尸列表的函数
-    void PickZombieWaves();
+    static void PickZombieWaves();
 
     // 选卡界面点击调试试玩按钮时，以随机选卡填充卡槽，立即完成所有选卡的移动，然后结束选卡。
-    void PickRandomSeeds();
+    static void PickRandomSeeds();
 
-    constexpr int JACK_MUSIC_IDX = 0x0e;   // 小丑音效
-    constexpr int MJ_MUSIC_IDX = 0x64;     // 舞王音效
-    constexpr int DIGGER_MUSIC_IDX = 0x21; // 矿工音效
+    static constexpr int JACK_MUSIC_IDX = 0x0e;   // 小丑音效
+    static constexpr int MJ_MUSIC_IDX = 0x64;     // 舞王音效
+    static constexpr int DIGGER_MUSIC_IDX = 0x21; // 矿工音效
 
     // 增加音效的引用计数
-    void PlayFoleyPitch(int idx);
+    static void PlayFoleyPitch(int idx);
 
     // 减少音效的引用计数
-    void StopFoley(int idx);
+    static void StopFoley(int idx);
 
     // 播放僵尸的出场音效
-    void PlayZombieAppearSound(AZombie* zombie);
+    static void PlayZombieAppearSound(AZombie* zombie);
 
     // 播放音乐
-    void PlaySample(int idx);
+    static void PlaySample(int idx);
 
     // 更新鼠标和预览
-    void UpdateCursorObjectAndPreview();
+    static void UpdateCursorObjectAndPreview();
 
     // 刷新卡片冷却
-    void RefreshAllSeedPackets();
+    static void RefreshAllSeedPackets();
 
-    __ADeprecated() void* SaveToMemory();
-    __ADeprecated() void LoadFromMemory(void*& p);
-    __ADeprecated() void FreeMemory(void*& p);
+    __ADeprecated() static void* SaveToMemory();
+    __ADeprecated() static void LoadFromMemory(void*& p);
+    __ADeprecated() static void FreeMemory(void*& p);
 };
 
 
+NS_END
 
 #endif

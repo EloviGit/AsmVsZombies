@@ -1,9 +1,10 @@
-#include "libavz.h"
-#include HEADER_ORIGIN(avz_asm.h)
+#include "avz_multi_platform.h"
+#include HEADER_ORIGINAL(libavz.h)
 
-namespace NS_ORIGIN(AAsm) {
+NS_ORIGINAL_BEGIN(avz_asm)
+USING_NS_ORIGINAL(libavz)
 
-void GameFightLoop() {
+void AAsm::GameFightLoop() {
     asm volatile(
         "movl 0x6a9ec0, %%ecx;"
         "movl 0x768(%%ecx), %%ecx;"
@@ -14,7 +15,7 @@ void GameFightLoop() {
         : ASaveAllRegister);
 }
 
-void GameTotalLoop() {
+void AAsm::GameTotalLoop() {
     asm volatile(
         "movl 0x6a9ec0, %%ecx;"
         "movl $0x452650, %%eax;"
@@ -24,7 +25,7 @@ void GameTotalLoop() {
         : ASaveAllRegister);
 }
 
-void GameSleepLoop() {
+void AAsm::GameSleepLoop() {
     asm volatile(
         "movl 0x6a9ec0, %%ecx;"
         "movl $0x453a50, %%eax;"
@@ -34,7 +35,7 @@ void GameSleepLoop() {
         : ASaveAllRegister);
 }
 
-void UpdateFrame() {
+void AAsm::UpdateFrame() {
     asm volatile(
         "movl 0x6a9ec0, %%edi;"
         "movl 0x320(%%edi), %%edi;"
@@ -45,7 +46,7 @@ void UpdateFrame() {
         : ASaveAllRegister);
 }
 
-void ClearObjectMemory() {
+void AAsm::ClearObjectMemory() {
     asm volatile(
         "movl 0x6a9ec0, %%ebx;"
         "movl 0x768(%%ebx), %%esi;"
@@ -62,7 +63,7 @@ void ClearObjectMemory() {
         : ASaveAllRegister);
 }
 
-void KillZombiesPreview() {
+void AAsm::KillZombiesPreview() {
     asm volatile(
         "movl 0x6a9ec0, %%ebx;"
         "movl 0x768(%%ebx), %%ebx;"
@@ -73,11 +74,11 @@ void KillZombiesPreview() {
         : ASaveAllRegister);
 }
 
-void SetImprovePerformance(bool is_improve_performance) {
+void AAsm::SetImprovePerformance(bool is_improve_performance) {
     *(bool*)(0x6a66f4) = !is_improve_performance;
 }
 
-void CheckFightExit() {
+void AAsm::CheckFightExit() {
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
         "movl $0x4524f0, %%ecx;"
@@ -87,7 +88,7 @@ void CheckFightExit() {
         : ASaveAllRegister);
 }
 
-void SaveData() {
+void AAsm::SaveData() {
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
         "movl 0x768(%%eax), %%eax;"
@@ -100,7 +101,7 @@ void SaveData() {
         : ASaveAllRegister);
 }
 
-void LoadData() {
+void AAsm::LoadData() {
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
         "pushl %%eax;"
@@ -111,7 +112,7 @@ void LoadData() {
         : ASaveAllRegister);
 }
 
-void Rock() {
+void AAsm::Rock() {
     asm volatile(
         "movl 0x6a9ec0, %%ebx;"
         "movl 0x774(%%ebx), %%ebx;"
@@ -125,7 +126,7 @@ void Rock() {
         : ASaveAllRegister);
 }
 
-void ClickScene(AMainObject* level, int x, int y, int key) {
+void AAsm::ClickScene(AMainObject* level, int x, int y, int key) {
     if (AGetPvzBase()->GameUi() != 3)
         return;
     asm volatile(
@@ -140,7 +141,7 @@ void ClickScene(AMainObject* level, int x, int y, int key) {
         : ASaveAllRegister);
 }
 
-void Click(AMouseWindow* mw, int x, int y, int key) {
+void AAsm::Click(AMouseWindow* mw, int x, int y, int key) {
     asm volatile(
         "pushl %[x];"
         "movl %[key], %%ebx;"
@@ -153,7 +154,7 @@ void Click(AMouseWindow* mw, int x, int y, int key) {
         : ASaveAllRegister);
 }
 
-void MouseClick(int x, int y, int key) {
+void AAsm::MouseClick(int x, int y, int key) {
     int curX = AGetPvzBase()->MouseWindow()->MouseAbscissa();
     int curY = AGetPvzBase()->MouseWindow()->MouseOrdinate();
     MouseDown(x, y, key);
@@ -162,7 +163,7 @@ void MouseClick(int x, int y, int key) {
 }
 
 // 鼠标按下
-void MouseDown(int x, int y, int key) {
+void AAsm::MouseDown(int x, int y, int key) {
     asm volatile(
         "pushl %[x];"
         "movl %[y], %%eax;"
@@ -177,7 +178,7 @@ void MouseDown(int x, int y, int key) {
 }
 
 // 鼠标松开
-void MouseUp(int x, int y, int key) {
+void AAsm::MouseUp(int x, int y, int key) {
     asm volatile(
         "pushl %[key];"
         "pushl %[x];"
@@ -192,7 +193,7 @@ void MouseUp(int x, int y, int key) {
 }
 
 // 移动鼠标
-void MouseMove(int x, int y) {
+void AAsm::MouseMove(int x, int y) {
     asm volatile(
         "movl 0x6a9ec0, %%edx;"
         "movl 0x320(%%edx), %%edx;"
@@ -205,7 +206,7 @@ void MouseMove(int x, int y) {
         : ASaveAllRegister);
 }
 
-void Fire(int x, int y, int rank) {
+void AAsm::Fire(int x, int y, int rank) {
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
         "movl 0x768(%%eax), %%edi;"
@@ -221,7 +222,7 @@ void Fire(int x, int y, int rank) {
         : ASaveAllRegister);
 }
 
-void PlantCard(int x, int y, int index) {
+void AAsm::PlantCard(int x, int y, int index) {
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
         "movl 0x768(%%eax), %%edi;"
@@ -243,7 +244,7 @@ void PlantCard(int x, int y, int index) {
         : ASaveAllRegister);
 }
 
-void ShovelPlant(int x, int y) {
+void AAsm::ShovelPlant(int x, int y) {
     asm volatile(
         "pushl $0x6;"
         "pushl $0x1;"
@@ -258,7 +259,7 @@ void ShovelPlant(int x, int y) {
         : ASaveAllRegister);
 }
 
-void ChooseCard(int cardType) {
+void AAsm::ChooseCard(int cardType) {
     asm volatile(
         "movl $0x6a9ec0, %%eax;"
         "movl (%%eax), %%eax;"
@@ -277,7 +278,7 @@ void ChooseCard(int cardType) {
         : ASaveAllRegister);
 }
 
-void ChooseImitatorCard(int cardType) {
+void AAsm::ChooseImitatorCard(int cardType) {
     asm volatile(
         "movl $0x6a9ec0, %%eax;"
         "movl (%%eax), %%eax;"
@@ -310,7 +311,7 @@ void ChooseImitatorCard(int cardType) {
         : ASaveAllRegister);
 }
 
-int GetPlantRejectType(int cardType, int row, int col) {
+int AAsm::GetPlantRejectType(int cardType, int row, int col) {
     int ret;
     asm volatile(
         "pushl %[cardType];"
@@ -328,7 +329,7 @@ int GetPlantRejectType(int cardType, int row, int col) {
     return ret;
 }
 
-void ReleaseMouse() {
+void AAsm::ReleaseMouse() {
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
         "movl 0x768(%%eax), %%eax;"
@@ -339,7 +340,7 @@ void ReleaseMouse() {
         : ASaveAllRegister);
 }
 
-int GridToAbscissa(int row, int col) {
+int AAsm::GridToAbscissa(int row, int col) {
     int ret;
     asm volatile(
         "movl 0x6a9ec0, %%ecx;"
@@ -355,7 +356,7 @@ int GridToAbscissa(int row, int col) {
     return ret;
 }
 
-int GridToOrdinate(int row, int col) {
+int AAsm::GridToOrdinate(int row, int col) {
     int ret;
     asm volatile(
         "movl 0x6a9ec0, %%ebx;"
@@ -371,7 +372,7 @@ int GridToOrdinate(int row, int col) {
     return ret;
 }
 
-AZombie* PutZombie(int row, int col, AZombieType type) {
+AZombie* AAsm::PutZombie(int row, int col, AZombieType type) {
     auto ret = AGetMainObject()->ZombieArray() + AGetMainObject()->ZombieNext();
     asm volatile(
         "movl %[row], %%eax;"
@@ -388,7 +389,7 @@ AZombie* PutZombie(int row, int col, AZombieType type) {
     return ret;
 }
 
-APlant* PutPlant(int row, int col, APlantType type) {
+APlant* AAsm::PutPlant(int row, int col, APlantType type) {
     if (type == AIMITATOR)
         return nullptr; // 不可能出现这种情况
 
@@ -416,7 +417,7 @@ APlant* PutPlant(int row, int col, APlantType type) {
     return ret;
 }
 
-void RemovePlant(APlant* plant) {
+void AAsm::RemovePlant(APlant* plant) {
     asm volatile(
         "pushl %[plant];"
         "movl $0x4679b0, %%edx;"
@@ -426,7 +427,7 @@ void RemovePlant(APlant* plant) {
         : ASaveAllRegister);
 }
 
-void KillZombie(AZombie* zombie) {
+void AAsm::KillZombie(AZombie* zombie) {
     asm volatile(
         "movl %[zombie], %%ecx;"
         "movl $0x5302f0, %%edx;"
@@ -436,7 +437,7 @@ void KillZombie(AZombie* zombie) {
         : ASaveAllRegister);
 }
 
-void RemoveZombie(AZombie* zombie) {
+void AAsm::RemoveZombie(AZombie* zombie) {
     asm volatile(
         "movl %[zombie], %%ecx;"
         "movl $0x530510, %%edx;"
@@ -446,7 +447,7 @@ void RemoveZombie(AZombie* zombie) {
         : ASaveAllRegister);
 }
 
-void* SaveToMemory() {
+void* AAsm::SaveToMemory() {
     void* p = malloc(0x24);
     memset(p, 0, 0x24);
 
@@ -466,7 +467,7 @@ void* SaveToMemory() {
     return p;
 }
 
-void FreeMemory(void*& p) {
+void AAsm::FreeMemory(void*& p) {
     if (!p)
         return;
     asm volatile(
@@ -480,7 +481,7 @@ void FreeMemory(void*& p) {
     p = nullptr;
 }
 
-void LoadFromMemory(void*& p) {
+void AAsm::LoadFromMemory(void*& p) {
     if (!p)
         return;
     asm volatile(
@@ -505,7 +506,7 @@ void LoadFromMemory(void*& p) {
     FreeMemory(p);
 }
 
-bool IsSeedUsable(ASeed* seed) {
+bool AAsm::IsSeedUsable(ASeed* seed) {
     bool ret;
     asm volatile(
         "movl %[ptr], %%esi;"
@@ -518,7 +519,7 @@ bool IsSeedUsable(ASeed* seed) {
     return ret;
 }
 
-int GetSeedSunVal(int type, int iType) {
+int AAsm::GetSeedSunVal(int type, int iType) {
     int ret;
     asm volatile(
         "movl %[type], %%eax;"
@@ -534,7 +535,7 @@ int GetSeedSunVal(int type, int iType) {
     return ret;
 }
 
-void UpdateMousePos() {
+void AAsm::UpdateMousePos() {
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
         "movl 0x768(%%eax), %%eax;"
@@ -545,7 +546,7 @@ void UpdateMousePos() {
         : ASaveAllRegister);
 }
 
-void MakePvzString(const char* str, void* strObj) {
+void AAsm::MakePvzString(const char* str, void* strObj) {
     asm volatile(
         "movl %[str], %%ecx;"
         "pushl %%ecx;"
@@ -557,7 +558,7 @@ void MakePvzString(const char* str, void* strObj) {
         : ASaveAllRegister);
 }
 
-void FreePvzString(void* strObj) {
+void AAsm::FreePvzString(void* strObj) {
     asm volatile(
         "movl %[strObj], %%ecx;"
         "movl $0x404420, %%eax;"
@@ -567,7 +568,7 @@ void FreePvzString(void* strObj) {
         : ASaveAllRegister);
 }
 
-void MakeNewBoard() {
+void AAsm::MakeNewBoard() {
     int scene = AGetMainObject()->Scene();
     asm volatile(
         // MakeNewBoard
@@ -592,13 +593,13 @@ void __ABeforeMakeNewBoard(std::vector<int>& zombieMusicRefCnts, std::vector<int
         zombieMusicRefCnts.push_back(AMRef<int>(0x6a9ec0, 0x784, 0xa4 * idx + 0x4));
         if (zombieMusicRefCnts.back() != 0) {
             // 有音效要维持住
-            PlayFoleyPitch(idx);
+            AAsm::PlayFoleyPitch(idx);
         }
     }
     // aLogger->Info("{} {}", __LINE__, AMRef<int>(0x6a9ec0, 0x784, 0xa4 * AAsm::JACK_MUSIC_IDX + 0x4));
 
     // 舞王和小丑的音效
-    auto&& mjMusicRefCnt = AMRef<int>(0x6a9ec0, 0x784, 0xa4 * MJ_MUSIC_IDX + 0x4);
+    auto&& mjMusicRefCnt = AMRef<int>(0x6a9ec0, 0x784, 0xa4 * AAsm::MJ_MUSIC_IDX + 0x4);
     if (mjMusicRefCnt != 0) {
         int mjCnt = 0;
         for (auto&& zombie : aAliveZombieFilter) {
@@ -622,10 +623,10 @@ void __AAfterLoadGame(std::vector<int>& zombieMusicRefCnts, std::vector<int>& zo
             int state = zombie.State();
             // 处于活动状态，进行音乐播放
             if (type == AXC_15 && state == 15) {
-                PlayFoleyPitch(JACK_MUSIC_IDX);
+                AAsm::PlayFoleyPitch(AAsm::JACK_MUSIC_IDX);
                 zombie.MRef<bool>(0x104) = true;
             } else if (type == AKG_17 && state == 32) {
-                PlayFoleyPitch(DIGGER_MUSIC_IDX);
+                AAsm::PlayFoleyPitch(AAsm::DIGGER_MUSIC_IDX);
                 zombie.MRef<bool>(0x104) = true;
             }
         } else if (type == AXC_15) {
@@ -634,18 +635,18 @@ void __AAfterLoadGame(std::vector<int>& zombieMusicRefCnts, std::vector<int>& zo
         }
     }
     if (mjCnt == 0) {
-        int refCnt = AMRef<int>(0x6a9ec0, 0x784, 0xa4 * MJ_MUSIC_IDX + 0x4);
+        int refCnt = AMRef<int>(0x6a9ec0, 0x784, 0xa4 * AAsm::MJ_MUSIC_IDX + 0x4);
         for (int i = 0; i < refCnt; ++i)
-            StopFoley(MJ_MUSIC_IDX);
+            AAsm::StopFoley(AAsm::MJ_MUSIC_IDX);
     }
 
     // 把之前增加的减回去
     for (int i = 0; i < zombieMusicIdxs.size(); ++i)
         if (zombieMusicRefCnts[i] != 0)
-            StopFoley(zombieMusicIdxs[i]);
+            AAsm::StopFoley(zombieMusicIdxs[i]);
 }
 
-void LoadGame(const std::string& file) {
+void AAsm::LoadGame(const std::string& file) {
     // 此函数需要根据场景调用不同的函数
     // 如果没有切换场景，调用 LawnLoadGame 481FE0
     // 如果切换场景，调用 LoadGame 408DE0
@@ -659,7 +660,7 @@ void LoadGame(const std::string& file) {
         // 防止 MakeNewBoard 停止音乐
         // aLogger->Info("{} {}", __LINE__, AMRef<int>(0x6a9ec0, 0x784, 0xa4 * JACK_MUSIC_IDX + 0x4));
         std::vector<int> zombieMusicRefCnts;
-        std::vector<int> zombieMusicIdxs = {JACK_MUSIC_IDX, DIGGER_MUSIC_IDX};
+        std::vector<int> zombieMusicIdxs = {AAsm::JACK_MUSIC_IDX, AAsm::DIGGER_MUSIC_IDX};
         __ABeforeMakeNewBoard(zombieMusicRefCnts, zombieMusicIdxs);
         MakeNewBoard();
         // aLogger->Info("{} {}", __LINE__, AMRef<int>(0x6a9ec0, 0x784, 0xa4 * JACK_MUSIC_IDX + 0x4));
@@ -711,7 +712,7 @@ void LoadGame(const std::string& file) {
     FreePvzString(&pvzStr);
 }
 
-void SaveGame(const std::string& file) {
+void AAsm::SaveGame(const std::string& file) {
     for (auto&& zombie : AObjSelector(&AZombie::Type, AJACK_IN_THE_BOX_ZOMBIE, &AZombie::State, 15))
         if (zombie.FixationCountdown() != 0 || zombie.FreezeCountdown() != 0)
             zombie.MRef<bool>(0x104) = zombie.MRef<bool>(0xba);
@@ -731,7 +732,7 @@ void SaveGame(const std::string& file) {
     FreePvzString(&pvzStr);
 }
 
-bool CanSpawnZombies(int row) {
+bool AAsm::CanSpawnZombies(int row) {
     bool ret;
     asm volatile(
         "movl %[row], %%eax;"
@@ -746,7 +747,7 @@ bool CanSpawnZombies(int row) {
     return ret;
 }
 
-bool IsNight() {
+bool AAsm::IsNight() {
     bool ret;
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
@@ -760,7 +761,7 @@ bool IsNight() {
     return ret;
 }
 
-bool IsRoof() {
+bool AAsm::IsRoof() {
     bool ret;
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
@@ -774,7 +775,7 @@ bool IsRoof() {
     return ret;
 }
 
-bool HasGrave() {
+bool AAsm::HasGrave() {
     bool ret;
     asm volatile(
         "movl 0x6a9ec0, %%edx;"
@@ -788,7 +789,7 @@ bool HasGrave() {
     return ret;
 }
 
-bool HasPool() {
+bool AAsm::HasPool() {
     bool ret;
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
@@ -802,7 +803,7 @@ bool HasPool() {
     return ret;
 }
 
-int ZombieTotalHp(int wave) {
+int AAsm::ZombieTotalHp(int wave) {
     int ret;
     asm volatile(
         "pushl %[wave];"
@@ -817,7 +818,7 @@ int ZombieTotalHp(int wave) {
     return ret;
 }
 
-void EnterGame(int gameMode) {
+void AAsm::EnterGame(int gameMode) {
     auto gameUi = AGetPvzBase()->GameUi();
     if (gameUi == LEVEL_INTRO || gameUi == PLAYING)
         return; // 在选卡界面或者战斗界面此函数无效
@@ -863,7 +864,7 @@ void EnterGame(int gameMode) {
         : ASaveAllRegister);
 }
 
-void DoBackToMain() {
+void AAsm::DoBackToMain() {
     auto gameUi = AGetPvzBase()->GameUi();
     if (gameUi != PLAYING)
         return; // 在非战斗界面此函数无效
@@ -876,7 +877,7 @@ void DoBackToMain() {
         : ASaveAllRegister);
 }
 
-void PickZombieWaves() {
+void AAsm::PickZombieWaves() {
     asm volatile(
         "movl 0x6a9ec0, %%edi;"
         "movl 0x768(%%edi), %%edi;"
@@ -887,7 +888,7 @@ void PickZombieWaves() {
         : ASaveAllRegister);
 }
 
-void PickRandomSeeds() {
+void AAsm::PickRandomSeeds() {
     asm volatile(
         "movl 0x6a9ec0, %%eax;"
         "movl 0x774(%%eax), %%eax;"
@@ -899,7 +900,7 @@ void PickRandomSeeds() {
         : ASaveAllRegister);
 }
 
-void PlayFoleyPitch(int idx) {
+void AAsm::PlayFoleyPitch(int idx) {
     asm volatile(
         "movl 0x6a9ec0, %%ecx;"
         "movl 0x784(%%ecx), %%ecx;"
@@ -912,7 +913,7 @@ void PlayFoleyPitch(int idx) {
         : ASaveAllRegister);
 }
 
-void StopFoley(int idx) {
+void AAsm::StopFoley(int idx) {
     asm volatile(
         "movl 0x6a9ec0, %%edi;"
         "movl 0x784(%%edi), %%edi;"
@@ -925,7 +926,7 @@ void StopFoley(int idx) {
 }
 
 // 播放僵尸的出场音效
-void PlayZombieAppearSound(AZombie* zombie) {
+void AAsm::PlayZombieAppearSound(AZombie* zombie) {
     asm volatile(
         "movl %[zombie], %%ecx;"
         "movl $0x530640, %%eax;"
@@ -936,7 +937,7 @@ void PlayZombieAppearSound(AZombie* zombie) {
 }
 
 // 播放音乐
-void PlaySample(int idx) {
+void AAsm::PlaySample(int idx) {
     asm volatile(
         "movl 0x6a9ec0, %%ecx;"
         "pushl %[idx];"
@@ -947,7 +948,7 @@ void PlaySample(int idx) {
         : ASaveAllRegister);
 }
 
-void UpdateCursorObjectAndPreview() {
+void AAsm::UpdateCursorObjectAndPreview() {
     asm volatile(
         // CursorObject::Update
         "movl 0x6a9ec0, %%esi;"
@@ -967,7 +968,7 @@ void UpdateCursorObjectAndPreview() {
         : ASaveAllRegister);
 }
 
-void RefreshAllSeedPackets() {
+void AAsm::RefreshAllSeedPackets() {
     asm volatile(
         "movl 0x6a9ec0, %%esi;"
         "movl 0x768(%%esi), %%esi;"
@@ -1012,6 +1013,7 @@ void RefreshAllSeedPackets() {
 //     // }
 // }
 
-}
+
+NS_END
 
 

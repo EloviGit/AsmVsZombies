@@ -12,15 +12,19 @@ add_library(compile_options INTERFACE)
 target_compile_options(compile_options INTERFACE -fexperimental-library)
 target_include_directories(compile_options INTERFACE inc)
 
-# build libavz
+
 aux_source_directory(src avz_srcs)
 aux_source_directory(src/minhook minhook_srcs)
-add_library(avz ${avz_srcs} ${minhook_srcs})
-target_link_libraries(avz PRIVATE original compile_options)
 
-# build libavz under pvz-emulator
-add_library(avz_pe STATIC ${avz_srcs} ${minhook_srcs})
-target_link_libraries(avz_pe PRIVATE pe compile_options)
+# build libavz under original pvz
+add_library(avz_original ${avz_srcs} ${minhook_srcs})
+target_link_libraries(avz_original PRIVATE original compile_options)
+target_compile_definitions(avz_original PRIVATE -DPLATFORM_ORIGINAL)
+
+# # build libavz under pvz-emulator
+# add_library(avz_pvz_emulator STATIC ${avz_srcs} ${minhook_srcs})
+# target_link_libraries(avz_pvz_emulator PRIVATE compile_options)
+# target_compile_definitions(avz_pvz_emulator PRIVATE -DPLATFORM_PVZ_EMULATOR)
 
 # build injector
 add_subdirectory(tools/injector)
@@ -31,5 +35,5 @@ add_custom_target(PackageAvz ALL
         cd '${PROJECT_SOURCE_DIR}'; \
         rm bin/*.dll; \
         Compress-Archive -Path bin/,inc/,src/,metadata.json -Force -DestinationPath release/env2/nightly.zip"
-    DEPENDS avz injector
+    DEPENDS avz_original injector
 )
