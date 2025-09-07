@@ -1,14 +1,12 @@
-#ifndef __ORIGINAL_AVZ_SEH_H__
-#define __ORIGINAL_AVZ_SEH_H__
+#ifndef __SHARED_AVZ_SEH_H__
+#define __SHARED_AVZ_SEH_H__
 
-#include "avz_multi_platform.h"
 #include "windows.h"
 #include <DbgHelp.h>
 #include <string>
+#include <fstream>
 
 #define _CRT_SECURE_NO_WARNINGS 1
-
-NS_ORIGINAL_BEGIN(avz_seh)
 
 class ASeh {
     static LRESULT CALLBACK SEHWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -27,7 +25,5 @@ public:
 };
 
 inline ASeh __aSeh;
-
-NS_END
 
 #endif

@@ -1,11 +1,10 @@
-#ifndef __ORIGINAL_AVZ_GLOBAL_H__
-#define __ORIGINAL_AVZ_GLOBAL_H__
-
+#ifndef __SHARED_AVZ_GLOBAL_H__
+#define __SHARED_AVZ_GLOBAL_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_exception.h)
-#include HEADER_ORIGINAL(avz_pvz_struct.h)
-#include HEADER_ORIGINAL(avz_types.h)
+#include HEADER_SHARED(avz_exception.h)
+#include HEADER_SHARED(avz_types.h)
+
 #include <Windows.h>
 #include <algorithm>
 #include <map>
@@ -16,10 +15,6 @@
 #undef max
 #undef ERROR
 
-NS_ORIGINAL_BEGIN(avz_global)
-USING_NS_ORIGINAL(avz_exception)
-USING_NS_ORIGINAL(avz_pvz_struct)
-USING_NS_ORIGINAL(avz_types)
 
 __ANodiscard std::wstring AStrToWstr(const std::string& input);
 __ANodiscard std::string AWStrToStr(const std::wstring& input);
@@ -96,8 +91,9 @@ struct __AInternalGlobal {
     }
 };
 
-extern __AInternalGlobal __aig;
+inline __AInternalGlobal __aig;
 
+// Never referred function. Is it necessary?
 inline HINSTANCE AGetDllInstance() {
     return __aig.hInstance;
 }
@@ -250,7 +246,5 @@ public:
         return true;
     }
 };
-
-NS_END
 
 #endif

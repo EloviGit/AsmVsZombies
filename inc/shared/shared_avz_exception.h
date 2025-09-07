@@ -1,13 +1,12 @@
-#ifndef __ORIGINAL_AVZ_EXCEPTION_H__
-#define __ORIGINAL_AVZ_EXCEPTION_H__
+#ifndef __SHARED_AVZ_EXCEPTION_H__
+#define __SHARED_AVZ_EXCEPTION_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_types.h)
+#include HEADER_SHARED(avz_types.h)
+
 #include <exception>
 #include <string>
 
-NS_ORIGINAL_BEGIN(avz_exception)
-USING_NS_ORIGINAL(avz_types)
 
 class AException : public std::exception {
 public:
@@ -38,7 +37,5 @@ constexpr const char* ASTR_GAME_RET_MAIN_UI = "game return main ui";
 inline void AExitFight() {
     throw AException(ASTR_GAME_RET_MAIN_UI);
 }
-
-NS_END
 
 #endif

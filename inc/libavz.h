@@ -5,6 +5,7 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_PLATFORM(libavz.h)
+#include HEADER_SHARED(libavz.h)
 
 PACK_NS_AVZ(libavz)
 

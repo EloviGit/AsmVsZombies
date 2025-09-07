@@ -1,7 +1,6 @@
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(libavz.h)
+#include HEADER_SHARED(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_seh)
 
 namespace {
 HINSTANCE hInstance;
@@ -322,5 +321,3 @@ void ASeh::ShowErrorDialog(const char* theErrorTitle, const char* theErrorText) 
     DestroyWindow(HWnd);
     DeleteObject(font);
 }
-
-NS_END

@@ -2,14 +2,15 @@
 #define __ORIGINAL_AVZ_PVZ_STRUCT_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_types.h)
+#include HEADER_SHARED(avz_types.h)
+#include HEADER_SHARED(avz_pvz_struct.h)
 
 #include <Windows.h>
 #include <cstdint>
 #include <type_traits>
 
 NS_ORIGINAL_BEGIN(avz_pvz_struct)
-USING_NS_ORIGINAL(avz_types)
+
 
 struct APvzBase;         // 游戏主体
 struct AMainObject;      // 主要对象
@@ -31,90 +32,6 @@ struct AAnimationOffset; // 动画地址偏移
 struct AAnimation;       // 动画
 struct ACardSlot;        // 卡槽
 
-class APvzStruct {
-    __ADeleteCopyAndMove(APvzStruct);
-
-public:
-    template <typename T = APvzStruct>
-    __ANodiscard T& MRef(uintptr_t addr) noexcept {
-        return (T&)((uint8_t*)this)[addr];
-    }
-
-    template <typename T = APvzStruct>
-    __ANodiscard T* MPtr(uintptr_t addr) noexcept {
-        return *(T**)((uint8_t*)this + addr);
-    }
-
-    template <typename T = APvzStruct*>
-    __ANodiscard T MVal(uintptr_t addr) noexcept {
-        return (T)((uint8_t*)this + addr);
-    }
-
-    // MRef<T>(0x1, 0x2, 0x3) 形式
-    template <typename T = APvzStruct, typename... Others>
-    __ANodiscard T& MRef(uintptr_t first, Others... others) noexcept {
-        return MPtr(first)->MRef<T>(others...);
-    }
-
-    template <typename T = APvzStruct, typename... Others>
-    __ANodiscard T* MPtr(uintptr_t first, Others... others) noexcept {
-        return MPtr(first)->MPtr<T>(others...);
-    }
-
-    template <typename T = APvzStruct*, typename... Others>
-    __ANodiscard T MVal(uintptr_t first, Others... others) noexcept {
-        return MPtr(first)->MVal<T>(others...);
-    }
-
-    template <typename T>
-    void Write(const std::vector<T>& vec) {
-        std::copy(vec.begin(), vec.end(), (T*)this);
-    }
-
-    template <typename T, typename Iter>
-    void Write(Iter&& begin, Iter&& end) {
-        std::copy(begin, end, (T*)this);
-    }
-
-    template <typename T>
-    __ANodiscard auto Read(std::size_t size) {
-        std::vector<T> vec(size);
-        T* ptr = (T*)this;
-        std::copy(ptr, ptr + size, vec.begin());
-        return vec;
-    }
-};
-
-template <typename T = APvzStruct>
-__ANodiscard T& AMRef(uintptr_t addr) noexcept {
-    return *(T*)(addr);
-}
-
-template <typename T = APvzStruct>
-__ANodiscard T* AMPtr(uintptr_t addr) noexcept {
-    return *(T**)(addr);
-}
-
-template <typename T = APvzStruct*>
-__ANodiscard T AMVal(uintptr_t addr) noexcept {
-    return (T)(addr);
-}
-
-// AMRef<T>(0x1, 0x2, 0x3) 形式
-template <typename T = APvzStruct, typename... Others>
-__ANodiscard T& AMRef(uintptr_t first, Others... others) noexcept {
-    return AMPtr(first)->MRef<T>(others...);
-}
-
-template <typename T = APvzStruct, typename... Others>
-__ANodiscard T* AMPtr(uintptr_t first, Others... others) noexcept {
-    return AMPtr(first)->MPtr<T>(others...);
-}
-
-template <typename T = APvzStruct*, typename... Others>
-__ANodiscard T AMVal(uintptr_t first, Others... others) noexcept {
-    return AMPtr(first)->MVal<T>(others...);
-}
 
 // 游戏基址
 struct APvzBase : public APvzStruct {

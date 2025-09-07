@@ -1,11 +1,7 @@
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(libavz.h)
+#include HEADER_SHARED(libavz.h)
 
 #include <codecvt>
-
-NS_ORIGINAL_BEGIN(avz_global)
-
-__AInternalGlobal __aig;
 
 bool ARangeIn(int num, const std::vector<int>& lst) {
     for (auto _num : lst)
@@ -41,5 +37,3 @@ std::string AU32StrToStr(const std::u32string& input) {
     std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> converter;
     return converter.to_bytes(input);
 }
-
-NS_END

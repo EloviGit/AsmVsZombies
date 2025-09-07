@@ -1,11 +1,9 @@
-#ifndef __ORIGINAL_AVZ_STATE_HOOK_H__
-#define __ORIGINAL_AVZ_STATE_HOOK_H__
+#ifndef __SHARED_AVZ_STATE_HOOK_H__
+#define __SHARED_AVZ_STATE_HOOK_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_global.h)
+#include HEADER_SHARED(avz_global.h)
 
-NS_ORIGINAL_BEGIN(avz_state_hook)
-USING_NS_ORIGINAL(avz_global)
 
 #define __ADefineHookClass(HookName)                                                      \
     class __APublic##HookName##Hook {                                                     \
@@ -136,6 +134,5 @@ public:
 template <typename... Hooks>
 constexpr int ABeforeHook = __AMinHookT<Hooks...>::VALUE - 1;
 
-NS_END
 
 #endif

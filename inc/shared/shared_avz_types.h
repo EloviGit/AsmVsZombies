@@ -1,5 +1,5 @@
-#ifndef __AVZ_TYPES_H__
-#define __AVZ_TYPES_H__
+#ifndef __SHARED_AVZ_TYPES_H__
+#define __SHARED_AVZ_TYPES_H__
 
 #include <cstdint>
 #include <cstddef>

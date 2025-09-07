@@ -54,6 +54,21 @@
 #endif
 
 
+#if defined(PLATFORM_ORIGINAL)
+#define __APlatformIdentifier __ORIGINAL_IDENTIFIER
+#elif defined(PLATFORM_PVZ_EMULATOR)
+#define __APlatformIdentifier __PVZ_EMULATOR_IDENTIFIER
+#else
+#error "Unreachable code!"
+#endif
+
+#define HEADER_PLATFORM(header)             __ANEW_FILENAME(__APlatformIdentifier, header)
+#define NS_PLATFORM(name)                   __AJOIN( __APlatformIdentifier, name)
+#define NS_AVZ(name)                        __AJOIN(avz, name)
+
+#define HEADER_SHARED(header)               __ANEW_FILENAME(shared, header)
+
+
 #ifdef USE_NS
 #define NS_ORIGINAL_BEGIN(name)             namespace NS_ORIGINAL(name) {
 #define NS_PVZ_EMULATOR_BEGIN(name)         namespace NS_PVZ_EMULATOR(name) {
@@ -79,22 +94,6 @@ NS_AVZ_BEGIN(name)                          \
 USING_NS_PLATFORM(name)                     \
 NS_END                                      \
 USING_NS_AVZ(name)                          \
-
-#if defined(PLATFORM_ORIGINAL)
-#define __APlatformIdentifier __ORIGINAL_IDENTIFIER
-#elif defined(PLATFORM_PVZ_EMULATOR)
-#define __APlatformIdentifier __PVZ_EMULATOR_IDENTIFIER
-#else
-#error "Unreachable code!"
-#endif
-
-#define HEADER_PLATFORM(header)             __ANEW_FILENAME(__APlatformIdentifier, header)
-#define NS_PLATFORM(name)                   __AJOIN( __APlatformIdentifier, name)
-#define NS_AVZ(name)                        __AJOIN(avz, name)
-
-
-
-
 
 
 

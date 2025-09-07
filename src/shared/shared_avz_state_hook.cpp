@@ -1,8 +1,6 @@
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(libavz.h)
+#include HEADER_SHARED(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_state_hook)
-USING_NS_ORIGINAL(libavz)
 
 #define __ADefineHookClassFuncs(HookName)                                                    \
     __APublic##HookName##Hook::__APublic##HookName##Hook(int runOrder)                       \
@@ -56,4 +54,3 @@ __ADefineHookClassFuncs(BeforeTick);
 __ADefineHookClassFuncs(AfterTick);
 __ADefineHookClassFuncs(BeforeExit);
 
-NS_END
