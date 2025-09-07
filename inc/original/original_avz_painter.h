@@ -13,7 +13,6 @@
 #include <variant>
 
 NS_ORIGINAL_BEGIN(avz_painter)
-USING_NS_ORIGINAL(avz_state_hook)
 
 struct __AGeoVertex {
     float __x, __y, __z, __rhw;

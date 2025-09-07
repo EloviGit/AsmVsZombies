@@ -6,9 +6,9 @@
 #include HEADER_ORIGINAL(avz_time_queue.h)
 #include <coroutine>
 #include <unordered_set>
+#include <memory>
 
 NS_ORIGINAL_BEGIN(avz_coroutine)
-USING_NS_ORIGINAL(avz_state_hook)
 USING_NS_ORIGINAL(avz_time_queue)
 
 class __ACoHandleManager : public AOrderedExitFightHook<-10> {

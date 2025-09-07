@@ -1,6 +1,8 @@
 #ifndef __ORIGINAL_AVZ_GAME_CONTROLLOR_H__
 #define __ORIGINAL_AVZ_GAME_CONTROLLOR_H__
 
+// This file used AGetPvzBase(), can not be shared.
+
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(avz_logger.h)
 #include HEADER_ORIGINAL(avz_memory.h)

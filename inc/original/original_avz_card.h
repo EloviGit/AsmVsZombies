@@ -4,10 +4,11 @@
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_state_hook.h)
 #include HEADER_ORIGINAL(avz_tick_runner.h)
+#include HEADER_ORIGINAL(avz_pvz_struct.h)
 
 NS_AVZ_BEGIN(avz_card)
-USING_NS_ORIGINAL(avz_state_hook)
 USING_NS_ORIGINAL(avz_tick_runner)
+USING_NS_ORIGINAL(avz_pvz_struct)
 
 struct ACardName {
     APlantType plantType;

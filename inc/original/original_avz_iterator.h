@@ -2,11 +2,10 @@
 #define __ORIGINAL_AVZ_ITERATOR_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_global.h)
+#include HEADER_SHARED(avz_global.h)
 #include HEADER_ORIGINAL(avz_memory.h)
 
 NS_ORIGINAL_BEGIN(avz_iterator)
-USING_NS_ORIGINAL(avz_global)
 USING_NS_ORIGINAL(avz_memory)
 
 template <typename T>

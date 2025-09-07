@@ -38,15 +38,15 @@ USING_NS_ORIGINAL(avz_time_queue)
 USING_NS_ORIGINAL(avz_timeline)
 
 inline AItemCollector aItemCollector;
-extern AIceFiller aIceFiller;
-extern APlantFixer aPlantFixer;
-extern ACobManager aCobManager;
-extern AAliveFilter<AZombie> aAliveZombieFilter;
-extern AAliveFilter<APlant> aAlivePlantFilter;
-extern AAliveFilter<ASeed> aAliveSeedFilter;
-extern AAliveFilter<AItem> aAliveItemFilter;
-extern AAliveFilter<APlaceItem> aAlivePlaceItemFilter;
-extern APainter aPainter;
+inline AIceFiller aIceFiller;
+inline APlantFixer aPlantFixer;
+inline ACobManager aCobManager;
+inline AAliveFilter<AZombie> aAliveZombieFilter;
+inline AAliveFilter<APlant> aAlivePlantFilter;
+inline AAliveFilter<ASeed> aAliveSeedFilter;
+inline AAliveFilter<AItem> aAliveItemFilter;
+inline AAliveFilter<APlaceItem> aAlivePlaceItemFilter;
+inline APainter aPainter;
 
 NS_END
 

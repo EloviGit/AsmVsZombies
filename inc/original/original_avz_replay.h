@@ -3,15 +3,18 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(avz_tick_runner.h)
+#include HEADER_ORIGINAL(avz_memory.h)
 
 #include <algorithm>
 #include <atomic>
 #include <map>
 #include <mutex>
 #include <thread>
+#include <condition_variable>
 
 NS_ORIGINAL_BEGIN(avz_replay)
 USING_NS_ORIGINAL(avz_tick_runner)
+USING_NS_ORIGINAL(avz_memory)
 
 class AAbstractCompressor {
 public:

@@ -3,10 +3,12 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(avz_tick_runner.h)
+#include HEADER_ORIGINAL(avz_pvz_struct.h)
 #include <unordered_set>
 
 NS_ORIGINAL_BEGIN(avz_cob_manager)
 USING_NS_ORIGINAL(avz_tick_runner)
+USING_NS_ORIGINAL(avz_pvz_struct)
 
 class ACobManager : public AOrderedBeforeScriptHook<-1> {
     __ADeleteCopyAndMove(ACobManager);

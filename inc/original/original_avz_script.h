@@ -7,7 +7,6 @@
 
 NS_ORIGINAL_BEGIN(avz_script)
 USING_NS_ORIGINAL(avz_asm)
-USING_NS_ORIGINAL(avz_state_hook)
 
 class __AProfiler : public AOrderedEnterFightHook<-32768> {
 protected:
