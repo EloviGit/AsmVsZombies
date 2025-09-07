@@ -1,4 +1,5 @@
 #include "avz_multi_platform.h"
+#include HEADER_SHARED(libavz.h)
 #include HEADER_ORIGINAL(libavz.h)
 
 NS_ORIGINAL_BEGIN(avz_coroutine)

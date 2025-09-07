@@ -3,13 +3,13 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(avz_pvz_struct.h)
-#include HEADER_ORIGINAL(avz_types.h)
+#include HEADER_SHARED(avz_types.h)
 
 #define ASaveAllRegister "esp", "eax", "ebx", "ecx", "edx", "esi", "edi"
 
 NS_ORIGINAL_BEGIN(avz_asm)
 USING_NS_ORIGINAL(avz_pvz_struct)
-USING_NS_ORIGINAL(avz_types)
+
 
 // 使用汇编代码调用 PvZ 游戏内部的函数
 class AAsm {

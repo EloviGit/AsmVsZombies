@@ -2,7 +2,7 @@
 #define __ORIGINAL_AVZ_COROUTINE_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_state_hook.h)
+#include HEADER_SHARED(avz_state_hook.h)
 #include HEADER_ORIGINAL(avz_time_queue.h)
 #include <coroutine>
 #include <unordered_set>

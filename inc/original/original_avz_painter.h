@@ -2,7 +2,7 @@
 #define __ORIGINAL_AVZ_PAINTER_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_state_hook.h)
+#include HEADER_SHARED(avz_state_hook.h)
 
 #include <d3d.h>
 #include <list>

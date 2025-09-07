@@ -2,7 +2,7 @@
 #define __ORIGINAL_AVZ_MEMORY_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_state_hook.h)
+#include HEADER_SHARED(avz_state_hook.h)
 
 NS_ORIGINAL_BEGIN(avz_memory)
 USING_NS_ORIGINAL(avz_state_hook)

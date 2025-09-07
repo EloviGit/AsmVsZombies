@@ -3,7 +3,7 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(avz_asm.h)
-#include HEADER_ORIGINAL(avz_state_hook.h)
+#include HEADER_SHARED(avz_state_hook.h)
 
 NS_ORIGINAL_BEGIN(avz_script)
 USING_NS_ORIGINAL(avz_asm)
