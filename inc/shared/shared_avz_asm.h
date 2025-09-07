@@ -1,14 +1,11 @@
-#ifndef __ORIGINAL_AVZ_ASM_H__
-#define __ORIGINAL_AVZ_ASM_H__
+#ifndef __SHARED_AVZ_ASM_H__
+#define __SHARED_AVZ_ASM_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_pvz_struct.h)
+#include HEADER_SHARED(avz_pvz_struct.h)
 #include HEADER_SHARED(avz_types.h)
 
 #define ASaveAllRegister "esp", "eax", "ebx", "ecx", "edx", "esi", "edi"
-
-NS_ORIGINAL_BEGIN(avz_asm)
-USING_NS_ORIGINAL(avz_pvz_struct)
 
 
 // 使用汇编代码调用 PvZ 游戏内部的函数
@@ -262,8 +259,5 @@ public:
     __ADeprecated() static void LoadFromMemory(void*& p);
     __ADeprecated() static void FreeMemory(void*& p);
 };
-
-
-NS_END
 
 #endif

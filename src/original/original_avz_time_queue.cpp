@@ -1,8 +1,10 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_time_queue)
-USING_NS_ORIGINAL(libavz)
+// This file used AGetPvzBase(), can not be shared.
+
+
+
 
 
 std::optional<int> __AOpQueueManager::_GetNextWaveCountdown() {
@@ -264,4 +266,4 @@ __ANodiscard ATime ANowDelayTime(int delayTime) {
     return ANowTime() + delayTime;
 }
 
-NS_END
+

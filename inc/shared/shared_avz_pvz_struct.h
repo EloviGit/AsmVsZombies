@@ -115,6 +115,12 @@ __ANodiscard T AMVal(uintptr_t first, Others... others) noexcept {
 }
 
 
+// struct APvzBase, AMainObject, AAnimation are platform dependent, 
+// and cannot be defined in this shared header.
+// Therefore, though these three functions can be forward declared here,
+// their implementations must be provided in platform-specific headers/source files.
+// Thus, any file referring to these functions are not added into shared files.
+
 __ANodiscard APvzBase* AGetPvzBase();
 
 __ANodiscard AMainObject* AGetMainObject();
