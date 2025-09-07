@@ -6,9 +6,6 @@
 #include HEADER_ORIGINAL(avz_tick_runner.h)
 #include HEADER_ORIGINAL(avz_pvz_struct.h)
 
-NS_AVZ_BEGIN(avz_card)
-USING_NS_ORIGINAL(avz_tick_runner)
-USING_NS_ORIGINAL(avz_pvz_struct)
 
 struct ACardName {
     APlantType plantType;
@@ -141,6 +138,6 @@ std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, const st
 std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, const std::vector<AGrid>& lst);
 std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, std::initializer_list<AGrid> lst);
 
-NS_END
+
 
 #endif

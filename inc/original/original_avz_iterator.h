@@ -5,8 +5,8 @@
 #include HEADER_SHARED(avz_global.h)
 #include HEADER_ORIGINAL(avz_memory.h)
 
-NS_ORIGINAL_BEGIN(avz_iterator)
-USING_NS_ORIGINAL(avz_memory)
+
+
 
 template <typename T>
 using __APredicateT = std::function<bool(T* ptr)>;
@@ -308,6 +308,6 @@ AAliveFilter<T> AObjSelector(auto (T::*prop)(), auto... args) {
     });
 }
 
-NS_END
+
 
 #endif

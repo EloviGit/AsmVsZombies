@@ -4,6 +4,6 @@
 #include "avz_multi_platform.h"
 #include HEADER_PLATFORM(avz_tick_runner.h)
 
-PACK_NS_AVZ(avz_tick_runner)
+
 
 #endif

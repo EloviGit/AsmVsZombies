@@ -2,11 +2,10 @@
 #define __ORIGINAL_AVZ_SCRIPT_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_asm.h)
+#include HEADER_SHARED(avz_asm.h)
 #include HEADER_SHARED(avz_state_hook.h)
 
-NS_ORIGINAL_BEGIN(avz_script)
-USING_NS_ORIGINAL(avz_asm)
+
 
 class __AProfiler : public AOrderedEnterFightHook<-32768> {
 protected:
@@ -110,6 +109,6 @@ inline void ABackToMain(bool isSaveData = true) {
     __aScriptManager.BackToMain(isSaveData);
 }
 
-NS_END
+
 
 #endif

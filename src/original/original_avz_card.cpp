@@ -1,8 +1,8 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_card)
-USING_NS_ORIGINAL(libavz)
+
+
 
 
 std::vector<std::string> __ACardManager::_cardName = {
@@ -406,4 +406,3 @@ std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, std::ini
     return ACard(plantTypeVec, __AVecGridToVecPosition(lst));
 }
 
-NS_END

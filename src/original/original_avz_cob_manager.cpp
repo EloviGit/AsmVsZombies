@@ -1,8 +1,8 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_cob_manager)
-USING_NS_ORIGINAL(libavz)
+
+
 
 std::unordered_set<int> ACobManager::_lockSet;
 ATickRunner ACobManager::_tickRunner;
@@ -494,4 +494,4 @@ std::vector<int> ACobManager::RecoverRoofFire(const std::vector<APosition>& lst)
     return vec;
 }
 
-NS_END
+

@@ -7,9 +7,9 @@
 #include HEADER_ORIGINAL(avz_coroutine.h)
 #include HEADER_ORIGINAL(avz_tick_runner.h)
 
-NS_ORIGINAL_BEGIN(avz_connector)
-USING_NS_ORIGINAL(avz_coroutine)
-USING_NS_ORIGINAL(avz_tick_runner)
+
+
+
 
 class ATimeConnectHandle {
 public:
@@ -171,6 +171,6 @@ AConnectHandle AConnect(AKey key, Op&& op, int priority = 0, int runMode = ATick
     return handle;
 }
 
-NS_END
+
 
 #endif

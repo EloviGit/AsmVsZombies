@@ -6,9 +6,9 @@
 #include HEADER_ORIGINAL(avz_logger.h)
 #include <array>
 
-NS_ORIGINAL_BEGIN(avz_tick_runner)
-USING_NS_ORIGINAL(avz_coroutine)
-USING_NS_ORIGINAL(avz_logger)
+
+
+
 
 struct __ATickOperation {
     AOperation operation;
@@ -247,6 +247,6 @@ public:
     }
 };
 
-NS_END
+
 
 #endif

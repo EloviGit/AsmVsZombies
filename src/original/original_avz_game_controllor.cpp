@@ -1,8 +1,10 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_game_controllor)
-USING_NS_ORIGINAL(libavz)
+// This file used AGetPvzBase(), can not be shared.
+
+
+
 
 
 namespace {
@@ -100,4 +102,4 @@ void __AGameControllor::_ExitFight() {
     isUpdateWindow = true;
 }
 
-NS_END
+

@@ -5,8 +5,8 @@
 #include HEADER_ORIGINAL(avz_painter.h)
 #include HEADER_SHARED(avz_logger.h)
 
-NS_ORIGINAL_BEGIN(avz_logger)
-USING_NS_ORIGINAL(avz_painter)
+
+
 
 
 struct APvzGui {};
@@ -84,6 +84,6 @@ protected:
 };
 
 
-NS_END
+
 
 #endif

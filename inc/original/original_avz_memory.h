@@ -5,8 +5,8 @@
 #include HEADER_SHARED(avz_state_hook.h)
 #include HEADER_ORIGINAL(avz_pvz_struct.h)
 
-NS_ORIGINAL_BEGIN(avz_memory)
-USING_NS_ORIGINAL(avz_pvz_struct)
+
+
 
 // 返回鼠标所在行
 __ANodiscard int AMouseRow();
@@ -300,6 +300,6 @@ protected:
     virtual void _BeforeScript() override;
 } inline aFieldInfo;
 
-NS_END
+
 
 #endif

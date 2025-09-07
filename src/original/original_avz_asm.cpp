@@ -3,8 +3,8 @@
 
 // This file used AGetPvzBase(), can not be shared.
 
-NS_ORIGINAL_BEGIN(avz_asm)
-USING_NS_ORIGINAL(libavz)
+
+
 
 void AAsm::GameFightLoop() {
     asm volatile(
@@ -1016,6 +1016,6 @@ void AAsm::RefreshAllSeedPackets() {
 // }
 
 
-NS_END
+
 
 

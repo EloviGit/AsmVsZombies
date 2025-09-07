@@ -9,7 +9,7 @@
 #include <cstdint>
 #include <type_traits>
 
-NS_ORIGINAL_BEGIN(avz_pvz_struct)
+
 
 
 struct APvzBase;         // 游戏主体
@@ -989,6 +989,6 @@ public:
     }
 };
 
-NS_END
+
 
 #endif

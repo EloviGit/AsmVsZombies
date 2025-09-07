@@ -4,8 +4,8 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(avz_logger.h)
 
-NS_ORIGINAL_BEGIN(avz_click)
-USING_NS_ORIGINAL(avz_logger)
+
+
 
 struct AShovelPosition {
     int row;
@@ -51,6 +51,6 @@ void AShovel(int row, float col, bool pumpkin);
 void AShovel(int row, float col, int targetType = -1);
 void AShovel(const std::vector<AShovelPosition>& lst);
 
-NS_END
+
 
 #endif

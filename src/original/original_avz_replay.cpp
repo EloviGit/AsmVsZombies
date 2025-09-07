@@ -2,10 +2,12 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
+// This file used AGetPvzBase(), can not be shared.
+
 #include <filesystem>
 
-NS_ORIGINAL_BEGIN(avz_replay)
-USING_NS_ORIGINAL(libavz)
+
+
 
 namespace fs = std::filesystem;
 
@@ -744,4 +746,3 @@ void AReplay::SetCompressor(AAbstractCompressor& compressor) {
 }
 
 
-NS_END

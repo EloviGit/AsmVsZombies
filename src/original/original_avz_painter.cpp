@@ -1,7 +1,8 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_painter)
+// This file used AGetPvzBase(), can not be shared.
+
 
 
 static bool __isInPaintTickRunner = false;
@@ -669,4 +670,4 @@ IDirectDrawSurface7* __ATexture::CreateTextureSurface(int theWidth, int theHeigh
     return aSurface;
 }
 
-NS_END
+

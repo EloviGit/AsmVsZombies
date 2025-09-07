@@ -1,8 +1,8 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_click)
-USING_NS_ORIGINAL(libavz)
+
+
 
 
 void AClickSeed(int seedIndex) {
@@ -75,4 +75,4 @@ void AClickGrid(int row, float col, int offset) {
     ALeftClick(x, y);
 }
 
-NS_END
+

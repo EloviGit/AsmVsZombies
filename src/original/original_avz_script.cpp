@@ -1,8 +1,10 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_script)
-USING_NS_ORIGINAL(libavz)
+// This file used AGetPvzBase(), can not be shared.
+
+
+
 
 
 void __AScriptManager::GlobalInit() {
@@ -329,4 +331,4 @@ void __AScriptManager::BackToMain(bool isSaveData) {
     enterGameCountdown = 5;
 }
 
-NS_END
+

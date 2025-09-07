@@ -1,8 +1,10 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_memory)
-USING_NS_ORIGINAL(libavz)
+// This file used AGetPvzBase(), can not be shared.
+
+
+
 
 // 返回鼠标所在行
 int AMouseRow() {
@@ -452,4 +454,4 @@ void AFieldInfo::_BeforeScript() {
     nRows = 6 - std::count(rowType + 1, rowType + 7, ARowType::NONE);
 }
 
-NS_END
+

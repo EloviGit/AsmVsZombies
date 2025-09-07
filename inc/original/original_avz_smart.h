@@ -4,8 +4,8 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(avz_tick_runner.h)
 
-NS_ORIGINAL_BEGIN(avz_smart)
-USING_NS_ORIGINAL(avz_tick_runner)
+
+
 
 class AItemCollector : public ATickRunnerWithNoStart,
                        public AOrderedEnterFightHook<-1> {
@@ -214,6 +214,6 @@ public:
     }
 };
 
-NS_END
+
 
 #endif

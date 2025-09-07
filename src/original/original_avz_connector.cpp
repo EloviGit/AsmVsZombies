@@ -1,8 +1,8 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_connector)
-USING_NS_ORIGINAL(libavz)
+
+
 
 
 void ATimeConnectHandle::Stop() {
@@ -390,4 +390,4 @@ __AKeyManager::__AKeyManager() {
     __AddKeyMap(VK_OEM_CLEAR);
 }
 
-NS_END
+

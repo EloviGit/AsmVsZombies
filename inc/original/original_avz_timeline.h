@@ -5,8 +5,8 @@
 #include HEADER_ORIGINAL(avz_connector.h)
 #include <variant>
 
-NS_ORIGINAL_BEGIN(avz_tick_runner)
-USING_NS_ORIGINAL(avz_connector)
+
+
 
 #define __ANoDiscardTimeline [[nodiscard("ATimeline 需要绑定到绝对时间才会执行")]]
 
@@ -161,6 +161,6 @@ inline ATimeline operator-(const ATimeline& timeline, ATimeOffset offset) {
 
 using ARelOp __ADeprecated("请使用 ATimeline") = ATimeline;
 
-NS_END
+
 
 #endif

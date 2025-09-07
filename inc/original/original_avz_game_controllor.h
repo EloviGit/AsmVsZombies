@@ -7,9 +7,9 @@
 #include HEADER_ORIGINAL(avz_logger.h)
 #include HEADER_ORIGINAL(avz_memory.h)
 
-NS_ORIGINAL_BEGIN(avz_game_controllor)
-USING_NS_ORIGINAL(avz_logger)
-USING_NS_ORIGINAL(avz_memory)
+
+
+
 
 class __AGameControllor : public AOrderedExitFightHook<-1> {
 public:
@@ -144,6 +144,6 @@ inline void ASetUpdateWindow(bool isUpdateWindow) {
     __aGameControllor.SetUpdateWindow(isUpdateWindow);
 }
 
-NS_END
+
 
 #endif

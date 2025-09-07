@@ -12,7 +12,7 @@
 #include <queue>
 #include <variant>
 
-NS_ORIGINAL_BEGIN(avz_painter)
+
 
 struct __AGeoVertex {
     float __x, __y, __z, __rhw;
@@ -247,6 +247,6 @@ public:
 
 };
 
-NS_END
+
 
 #endif

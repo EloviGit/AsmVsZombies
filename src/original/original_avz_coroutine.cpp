@@ -1,8 +1,10 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_coroutine)
-USING_NS_ORIGINAL(libavz)
+// This file used AGetPvzBase(), can not be shared.
+
+
+
 
 
 std::unordered_set<void*> __ACoHandleManager::_handleSet;
@@ -64,4 +66,4 @@ void ACoFunctor::operator()() {
     co.SetPtr(_functor);
 }
 
-NS_END
+

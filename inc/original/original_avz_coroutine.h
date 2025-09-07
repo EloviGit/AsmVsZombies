@@ -8,8 +8,8 @@
 #include <unordered_set>
 #include <memory>
 
-NS_ORIGINAL_BEGIN(avz_coroutine)
-USING_NS_ORIGINAL(avz_time_queue)
+
+
 
 class __ACoHandleManager : public AOrderedExitFightHook<-10> {
 public:
@@ -141,6 +141,6 @@ protected:
 
 #define ACoLaunch(...) ACoFunctor {__VA_ARGS__}()
 
-NS_END
+
 
 #endif

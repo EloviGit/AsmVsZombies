@@ -12,9 +12,9 @@
 #include <thread>
 #include <condition_variable>
 
-NS_ORIGINAL_BEGIN(avz_replay)
-USING_NS_ORIGINAL(avz_tick_runner)
-USING_NS_ORIGINAL(avz_memory)
+
+
+
 
 class AAbstractCompressor {
 public:
@@ -254,6 +254,6 @@ protected:
 
 inline AReplay aReplay;
 
-NS_END
+
 
 #endif

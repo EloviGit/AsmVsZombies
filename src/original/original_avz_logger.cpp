@@ -1,7 +1,7 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_logger)
+
 
 
 void AAbstractLogger::_BeforeScript() {
@@ -164,4 +164,4 @@ ALogger<AConsole>::~ALogger() {
     }
 }
 
-NS_END
+

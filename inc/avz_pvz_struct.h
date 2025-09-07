@@ -5,6 +5,6 @@
 #include HEADER_SHARED(avz_pvz_struct.h)
 #include HEADER_PLATFORM(avz_pvz_struct.h)
 
-PACK_NS_AVZ(avz_pvz_struct)
+
 
 #endif

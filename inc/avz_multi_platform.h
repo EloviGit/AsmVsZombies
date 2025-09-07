@@ -26,25 +26,19 @@
 // To add a new platform:
 // 1. Define a new platform macro, e.g., PLATFORM_NEW_PLATFORM
 // 2. Define a new platform identifier macro, e.g., __NEW_PLATFORM_IDENTIFIER new_platform
-// 3. Define HEADER_NEW_PLATFORM(header) and NS_NEW_PLATFORM(name) macros
+// 3. Define HEADER_NEW_PLATFORM(header)
 // 4. Implement your code in inc/new_platform/ and src/new_platform/
 // 5. All files need to include avz_multi_platform.h
-// 6. Wrap all your code in new_platform_avz_XX.h, .cpp in namespace NS_NEW_PLATFORM(avz_XX)
-// 7. To include inc/new_platform/newplatform_avz_XX.h, use HEADER_NEW_PLATFORM(avz_XX)
+// 6. To include inc/new_platform/newplatform_avz_XX.h, use HEADER_NEW_PLATFORM(avz_XX)
 
-#ifdef USE_NS
-#undef USE_NS
-#endif
 
 #define __ORIGINAL_IDENTIFIER               original
 #define HEADER_ORIGINAL(header)             __ANEW_FILENAME(__ORIGINAL_IDENTIFIER, header)
-#define NS_ORIGINAL(name)                   __AJOIN( __ORIGINAL_IDENTIFIER, ns)
 // I used to wrap each {platform_avz_XXX.h, .cpp} into namespace unique to XXX(original_XXX), but it seems unnecessary;
 // So now I wrap all {platform_avz_XXX.h, .cpp} into namespace with respect to platform only(original_)
 
 #define __PVZ_EMULATOR_IDENTIFIER           pvz_emulator
 #define HEADER_PVZ_EMULATOR(header)         __ANEW_FILENAME(__PVZ_EMULATOR_IDENTIFIER, header)
-#define NS_PVZ_EMULATOR(name)               __AJOIN( __PVZ_EMULATOR_IDENTIFIER, ns)
 
 #if defined(PLATFORM_ORIGINAL) + defined(PLATFORM_PVZ_EMULATOR) > 1
 #error "Only at most one platform macro can be defined"
@@ -63,37 +57,10 @@
 #endif
 
 #define HEADER_PLATFORM(header)             __ANEW_FILENAME(__APlatformIdentifier, header)
-#define NS_PLATFORM(name)                   __AJOIN( __APlatformIdentifier, name)
-#define NS_AVZ(name)                        __AJOIN(avz, name)
 
 #define HEADER_SHARED(header)               __ANEW_FILENAME(shared, header)
 
 
-#ifdef USE_NS
-#define NS_ORIGINAL_BEGIN(name)             namespace NS_ORIGINAL(name) {
-#define NS_PVZ_EMULATOR_BEGIN(name)         namespace NS_PVZ_EMULATOR(name) {
-#define NS_AVZ_BEGIN(name)                  namespace NS_AVZ(name) {
-#define NS_END                              }
-#define USING_NS_ORIGINAL(name)             using namespace NS_ORIGINAL(name);
-#define USING_NS_PVZ_EMULATOR(name)         using namespace NS_PVZ_EMULATOR(name);
-#define USING_NS_PLATFORM(name)             using namespace NS_PLATFORM(name);
-#define USING_NS_AVZ(name)                  using namespace NS_AVZ(name);
-#else
-#define NS_ORIGINAL_BEGIN(name)
-#define NS_PVZ_EMULATOR_BEGIN(name)
-#define NS_AVZ_BEGIN(name)
-#define NS_END
-#define USING_NS_ORIGINAL(name)
-#define USING_NS_PVZ_EMULATOR(name)
-#define USING_NS_PLATFORM(name)             
-#define USING_NS_AVZ(name)
-#endif
-
-#define PACK_NS_AVZ(name)                   \
-NS_AVZ_BEGIN(name)                          \
-USING_NS_PLATFORM(name)                     \
-NS_END                                      \
-USING_NS_AVZ(name)                          \
 
 
 

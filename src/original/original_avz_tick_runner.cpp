@@ -1,8 +1,8 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-NS_ORIGINAL_BEGIN(avz_tick_runner)
-USING_NS_ORIGINAL(libavz)
+
+
 
 
 void __ATickManager::RunQueue() {
@@ -98,5 +98,5 @@ void ATickHandle::Stop() {
     _isStopped = true;
 }
 
-NS_END
+
 
