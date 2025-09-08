@@ -6,8 +6,6 @@
 #include <variant>
 
 
-
-
 #define __ANoDiscardTimeline [[nodiscard("ATimeline 需要绑定到绝对时间才会执行")]]
 
 template <typename T>

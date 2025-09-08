@@ -2,7 +2,7 @@
 #define __ORIGINAL_AVZ_COB_MANAGER_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_tick_runner.h)
+#include HEADER_SHARED(avz_tick_runner.h)
 #include HEADER_ORIGINAL(avz_pvz_struct.h)
 #include <unordered_set>
 
