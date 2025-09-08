@@ -101,7 +101,6 @@ __ANodiscard inline APvzBase* AGetPvzBase() {
 // 当前游戏信息和对象
 struct AMainObject : public APvzStruct {
     __ADeleteCopyAndMove(AMainObject);
-    uint8_t _data[0x57b0];
 
 public:
     // 僵尸内存数组
