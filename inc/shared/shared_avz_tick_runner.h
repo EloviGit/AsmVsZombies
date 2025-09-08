@@ -1,5 +1,5 @@
-#ifndef __AVZ_TICK_RUNNER_H__
-#define __AVZ_TICK_RUNNER_H__
+#ifndef __SHARED_AVZ_TICK_RUNNER_H__
+#define __SHARED_AVZ_TICK_RUNNER_H__
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_coroutine.h)
