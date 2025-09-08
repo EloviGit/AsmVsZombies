@@ -4,9 +4,6 @@
 // This file used AGetPvzBase(), can not be shared.
 
 
-
-
-
 std::optional<int> __AOpQueueManager::_GetNextWaveCountdown() {
     auto mo = AGetMainObject();
     int wave = mo->Wave();

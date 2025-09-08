@@ -2,9 +2,6 @@
 #include HEADER_ORIGINAL(libavz.h)
 
 
-
-
-
 void ATimeConnectHandle::Stop() {
     if (_iter) {
         if (ANowTime(_time.wave) < _time.time) { // 操作尚未运行

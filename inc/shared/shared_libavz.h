@@ -6,6 +6,7 @@
 #include HEADER_SHARED(avz_asm.h)
 #include HEADER_SHARED(avz_card.h)
 #include HEADER_SHARED(avz_click.h)
+#include HEADER_SHARED(avz_connector.h)
 #include HEADER_SHARED(avz_coroutine.h)
 #include HEADER_SHARED(avz_exception.h)
 #include HEADER_SHARED(avz_global.h)
@@ -18,7 +19,6 @@
 #include HEADER_SHARED(avz_types.h)
 
 // #include HEADER_SHARED(avz_cob_manager.h)
-// #include HEADER_SHARED(avz_connector.h)
 // #include HEADER_SHARED(avz_game_controllor.h)
 // #include HEADER_SHARED(avz_iterator.h)
 // #include HEADER_SHARED(avz_memory.h)
