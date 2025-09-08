@@ -267,7 +267,7 @@ void AReplay::_RecordTick() {
 }
 
 void AReplay::StartRecord(int interval, int64_t startIdx) {
-    if (AGetPvzBase()->GameUi() != 3) {
+    if (APvzBase_GameUi() != 3) {
         aLogger->Error("StartRecord : AReplay 只能在战斗界面使用");
         return;
     }
@@ -303,7 +303,7 @@ void AReplay::SetInfoPos(int x, int y) {
 
 bool AReplay::ShowOneTick(int64_t tick) {
 
-    if (AGetPvzBase()->GameUi() != 3) {
+    if (APvzBase_GameUi() != 3) {
         aLogger->Error("ShowOneTick : AReplay 只能在战斗界面使用");
         return false;
     }
@@ -408,7 +408,7 @@ bool AReplay::_PreparePack(int64_t tick) {
 }
 
 void AReplay::_PlayTick() {
-    if (AGetPvzBase()->GameUi() != 3) {
+    if (APvzBase_GameUi() != 3) {
         Stop();
         return;
     }
@@ -490,7 +490,7 @@ void AReplay::_ShowTickInfo() {
 }
 
 void AReplay::StartPlay(int interval, int64_t startIdx) {
-    if (AGetPvzBase()->GameUi() != 3) {
+    if (APvzBase_GameUi() != 3) {
         aLogger->Error("StartPlay : AReplay 只能在战斗界面使用");
         return;
     }
@@ -553,7 +553,7 @@ void AReplay::GoOn() {
         _lastPackIdx = INT_MIN;
     }
     // 高级暂停状态下，不调用一次 _RecordTick 就丢帧了
-    if (AGetPvzBase()->GameUi() == 3 && _state == RECORDING
+    if (APvzBase_GameUi() == 3 && _state == RECORDING
         && __aGameControllor.isAdvancedPaused)
         _RecordTick();
     _tickRunner.GoOn();
@@ -673,7 +673,7 @@ void AReplay::_LoadPvzState() {
     AMaidCheats::Phase() = _mjPhaseRecover;
     AMRef<uint8_t>(_FALLING_SUN_ADDR) = _fallingSunCodeRecover;
     AMRef<uint8_t>(_ZOMBIE_SPAWN_ADDR) = _zombieSpawnCodeRecover;
-    if (!AGetPvzBase() || !AGetPvzBase()->MainObject() || AGetPvzBase()->GameUi() != 3)
+    if (!AGetPvzBase() || !AGetPvzBase()->MainObject() || APvzBase_GameUi() != 3)
         return;
     auto filePath = _savePath / fs::path(_RECOVER_DAT_STR);
     if (fs::exists(filePath))

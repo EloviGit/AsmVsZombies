@@ -2,9 +2,6 @@
 #include HEADER_ORIGINAL(libavz.h)
 
 
-
-
-
 std::vector<std::string> __ACardManager::_cardName = {
     "豌豆射手",
     "向日葵",
@@ -114,7 +111,7 @@ void __ACardManager::_EnterFight() {
     _cardNameToIndexMap.clear();
     _selectCardVec.clear();
 
-    if (AGetPvzBase()->GameUi() != 3)
+    if (APvzBase_GameUi() != 3)
         return;
 
     for (auto& seed : ABasicFilter<ASeed>()) {

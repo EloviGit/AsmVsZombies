@@ -89,14 +89,14 @@ void __AOpQueueManager::RunOperation() {
                 continue;
             _PrintLog(ATime(wave, iter->first), queueNowTime);
             iter->second.operation();
-            if (AGetPvzBase()->GameUi() != 3)
+            if (APvzBase_GameUi() != 3)
                 return; // 在非战斗界面需要立即退出
         }
     }
 }
 
 void __AOpQueueManager::UpdateRefreshTime() {
-    if (AGetPvzBase()->GameUi() != 3)
+    if (APvzBase_GameUi() != 3)
         return;
     auto mo = AGetMainObject();
     int wave = mo->Wave(), gameClock = mo->GameClock();
@@ -218,13 +218,13 @@ void __AOpQueueManager::_ExitFight() {
 }
 
 int ANowWave() {
-    if (!__aOpQueueManager.isInitialized || AGetPvzBase()->GameUi() != 3)
+    if (!__aOpQueueManager.isInitialized || APvzBase_GameUi() != 3)
         return 0;
     return std::max(AGetMainObject()->Wave(), 1);
 }
 
 int ANowWave(bool allowNegativeTime) {
-    if (!__aOpQueueManager.isInitialized || AGetPvzBase()->GameUi() != 3)
+    if (!__aOpQueueManager.isInitialized || APvzBase_GameUi() != 3)
         return 0;
     int wave = AGetMainObject()->Wave();
     if (allowNegativeTime && __aOpQueueManager.queues[wave + 1].memRefreshTime != __AOperationQueue::UNINIT)
@@ -233,7 +233,7 @@ int ANowWave(bool allowNegativeTime) {
 }
 
 int ANowTime(int wave) {
-    if (AGetPvzBase()->GameUi() != 3) {
+    if (APvzBase_GameUi() != 3) {
         return __AOperationQueue::UNINIT;
     }
     if (!__aOpQueueManager.isInitialized)

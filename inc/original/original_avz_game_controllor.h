@@ -25,7 +25,7 @@ public:
             return;
         isSkipTick = [pre = std::forward<Pre>(pre), //
                          callback = std::forward<CallBack>(callback), this]() mutable {
-            auto gameUi = AGetPvzBase()->GameUi();
+            auto gameUi = APvzBase_GameUi();
             if (gameUi == 3 && pre())
                 return true;
             isSkipTick = []() -> bool { return false; };

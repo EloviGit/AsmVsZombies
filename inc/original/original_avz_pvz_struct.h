@@ -10,8 +10,6 @@
 #include <type_traits>
 
 
-
-
 struct APvzBase;         // 游戏主体
 struct AMainObject;      // 主要对象
 struct APlant;           // 植物
@@ -97,6 +95,15 @@ public:
 __ANodiscard inline APvzBase* AGetPvzBase() {
     return *(APvzBase**)0x6a9ec0;
 }
+
+__ANodiscard inline bool APvzBaseIsValid() {
+    return AGetPvzBase() != nullptr;
+}
+
+__ANodiscard inline int& APvzBase_GameUi() {
+    return AGetPvzBase()->GameUi();
+}
+
 
 // 当前游戏信息和对象
 struct AMainObject : public APvzStruct {
@@ -329,6 +336,10 @@ public:
 
 __ANodiscard inline AMainObject* AGetMainObject() {
     return AGetPvzBase()->MainObject();
+}
+
+__ANodiscard inline bool AMainObjectIsValid() {
+    return AGetMainObject() != nullptr;
 }
 
 // 动画主要属性

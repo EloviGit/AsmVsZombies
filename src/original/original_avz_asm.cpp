@@ -129,7 +129,7 @@ void AAsm::Rock() {
 }
 
 void AAsm::ClickScene(AMainObject* level, int x, int y, int key) {
-    if (AGetPvzBase()->GameUi() != 3)
+    if (APvzBase_GameUi() != 3)
         return;
     asm volatile(
         "pushl %[key];"
@@ -821,7 +821,7 @@ int AAsm::ZombieTotalHp(int wave) {
 }
 
 void AAsm::EnterGame(int gameMode) {
-    auto gameUi = AGetPvzBase()->GameUi();
+    auto gameUi = APvzBase_GameUi();
     if (gameUi == LEVEL_INTRO || gameUi == PLAYING)
         return; // 在选卡界面或者战斗界面此函数无效
 
@@ -867,7 +867,7 @@ void AAsm::EnterGame(int gameMode) {
 }
 
 void AAsm::DoBackToMain() {
-    auto gameUi = AGetPvzBase()->GameUi();
+    auto gameUi = APvzBase_GameUi();
     if (gameUi != PLAYING)
         return; // 在非战斗界面此函数无效
     asm volatile(
