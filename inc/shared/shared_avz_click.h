@@ -1,10 +1,8 @@
-#ifndef __ORIGINAL_AVZ_CLICK_H__
-#define __ORIGINAL_AVZ_CLICK_H__
+#ifndef __AVZ_CLICK_H__
+#define __AVZ_CLICK_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_logger.h)
-
-
+#include HEADER_SHARED(avz_logger.h)
 
 
 struct AShovelPosition {
@@ -50,7 +48,6 @@ void ALeftClick(int x, int y);
 void AShovel(int row, float col, bool pumpkin);
 void AShovel(int row, float col, int targetType = -1);
 void AShovel(const std::vector<AShovelPosition>& lst);
-
 
 
 #endif

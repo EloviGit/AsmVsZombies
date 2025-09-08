@@ -2,9 +2,7 @@
 #define __SHARED_AVZ_TIME_QUEUE_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_global.h)
-#include HEADER_SHARED(avz_logger.h)
-#include HEADER_SHARED(avz_memory.h)
+#include HEADER_SHARED(avz_state_hook.h)
 #include <map>
 #include <optional>
 

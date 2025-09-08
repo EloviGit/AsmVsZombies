@@ -7,8 +7,6 @@
 
 #include HEADER_SHARED(libavz.h)
 
-#include HEADER_ORIGINAL(avz_card.h)
-#include HEADER_ORIGINAL(avz_click.h)
 #include HEADER_ORIGINAL(avz_cob_manager.h)
 #include HEADER_ORIGINAL(avz_connector.h)
 #include HEADER_ORIGINAL(avz_game_controllor.h)
@@ -17,22 +15,7 @@
 #include HEADER_ORIGINAL(avz_replay.h)
 #include HEADER_ORIGINAL(avz_script.h)
 #include HEADER_ORIGINAL(avz_smart.h)
-#include HEADER_ORIGINAL(avz_time_queue.h)
 #include HEADER_ORIGINAL(avz_timeline.h)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 inline AItemCollector aItemCollector;

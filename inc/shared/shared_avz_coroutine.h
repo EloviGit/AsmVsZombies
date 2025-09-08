@@ -1,14 +1,12 @@
-#ifndef __ORIGINAL_AVZ_COROUTINE_H__
-#define __ORIGINAL_AVZ_COROUTINE_H__
+#ifndef __SHARED_AVZ_COROUTINE_H__
+#define __SHARED_AVZ_COROUTINE_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_state_hook.h)
-#include HEADER_ORIGINAL(avz_time_queue.h)
+#include HEADER_SHARED(avz_time_queue.h)
+#include HEADER_SHARED(avz_logger.h)
 #include <coroutine>
 #include <unordered_set>
 #include <memory>
-
-
 
 
 class __ACoHandleManager : public AOrderedExitFightHook<-10> {
@@ -140,7 +138,6 @@ protected:
 };
 
 #define ACoLaunch(...) ACoFunctor {__VA_ARGS__}()
-
 
 
 #endif

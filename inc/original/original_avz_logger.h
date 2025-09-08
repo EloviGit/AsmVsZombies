@@ -6,9 +6,11 @@
 #include HEADER_SHARED(avz_logger.h)
 
 
-
-
-
+struct AMsgBox {
+    static void Show(const std::string& str) {
+        MessageBoxW(nullptr, AStrToWstr(str).c_str(), L"AMsgBox", MB_OK);
+    }
+};
 struct APvzGui {};
 
 class ATickRunner;

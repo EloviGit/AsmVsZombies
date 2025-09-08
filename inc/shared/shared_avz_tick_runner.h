@@ -1,13 +1,10 @@
-#ifndef __ORIGINAL_AVZ_TICK_RUNNER_H__
-#define __ORIGINAL_AVZ_TICK_RUNNER_H__
+#ifndef __AVZ_TICK_RUNNER_H__
+#define __AVZ_TICK_RUNNER_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_coroutine.h)
-#include HEADER_ORIGINAL(avz_logger.h)
+#include HEADER_SHARED(avz_coroutine.h)
+#include HEADER_SHARED(avz_logger.h)
 #include <array>
-
-
-
 
 
 struct __ATickOperation {

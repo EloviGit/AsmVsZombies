@@ -3,7 +3,7 @@
 
 // This file used AGetPvzBase(), can not be shared.
 
-
+#define ASaveAllRegister "esp", "eax", "ebx", "ecx", "edx", "esi", "edi"
 
 
 void AAsm::GameFightLoop() {

@@ -5,8 +5,6 @@
 #include HEADER_SHARED(avz_pvz_struct.h)
 #include HEADER_SHARED(avz_types.h)
 
-#define ASaveAllRegister "esp", "eax", "ebx", "ecx", "edx", "esi", "edi"
-
 
 // 使用汇编代码调用 PvZ 游戏内部的函数
 class AAsm {

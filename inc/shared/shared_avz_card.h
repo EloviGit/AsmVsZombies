@@ -1,10 +1,10 @@
-#ifndef __ORIGINAL_AVZ_CARD_H__
-#define __ORIGINAL_AVZ_CARD_H__
+#ifndef __AVZ_CARD_H__
+#define __AVZ_CARD_H__
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_state_hook.h)
-#include HEADER_ORIGINAL(avz_tick_runner.h)
-#include HEADER_ORIGINAL(avz_pvz_struct.h)
+#include HEADER_SHARED(avz_tick_runner.h)
+#include HEADER_SHARED(avz_pvz_struct.h)
 
 
 struct ACardName {
@@ -137,7 +137,6 @@ std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, int row,
 std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, const std::vector<APosition>& lst);
 std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, const std::vector<AGrid>& lst);
 std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, std::initializer_list<AGrid> lst);
-
 
 
 #endif

@@ -96,12 +96,6 @@ protected:
 
 struct AFile {};
 struct AConsole {};
-struct AMsgBox {
-    static void Show(const std::string& str) {
-        MessageBoxW(nullptr, AStrToWstr(str).c_str(), L"AMsgBox", MB_OK);
-    }
-};
-
 
 template <typename T>
 class ALogger;
