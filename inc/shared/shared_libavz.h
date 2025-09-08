@@ -13,8 +13,8 @@
 #include HEADER_SHARED(avz_pvz_struct.h)
 #include HEADER_SHARED(avz_seh.h)
 #include HEADER_SHARED(avz_state_hook.h)
-#include HEADER_SHARED(avz_time_queue.h)
 #include HEADER_SHARED(avz_tick_runner.h)
+#include HEADER_SHARED(avz_time_queue.h)
 #include HEADER_SHARED(avz_types.h)
 
 // #include HEADER_SHARED(avz_cob_manager.h)

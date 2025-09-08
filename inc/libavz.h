@@ -8,5 +8,4 @@
 #include HEADER_SHARED(libavz.h)
 
 
-
 #endif
