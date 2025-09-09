@@ -4,6 +4,9 @@
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_pvz_struct.h)
 
+// This file is weakly or strongly platform dependent,
+// but the signatures are weakly platform dependent.
+// Some functions may not be implemented on certain platforms.
 
 // 使用汇编代码调用 PvZ 游戏内部的函数
 class AAsm {

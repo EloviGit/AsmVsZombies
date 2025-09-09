@@ -5,6 +5,7 @@
 #include HEADER_SHARED(avz_logger.h)
 #include HEADER_ORIGINAL(avz_memory.h)
 
+// This file is strongly platform dependent.
 
 class __AGameControllor : public AOrderedExitFightHook<-1> {
 public:

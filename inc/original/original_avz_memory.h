@@ -4,6 +4,8 @@
 #include "avz_multi_platform.h"
 #include  HEADER_SHARED(avz_memory.h)
 
+// This file(part) is strongly platform dependent.
+
 // 女仆秘籍
 class __ATypeP(AMaidCheats, __ORIGINAL_str) : public AOrderedExitFightHook<-1> {
 public:

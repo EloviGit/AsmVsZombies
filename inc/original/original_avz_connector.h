@@ -5,6 +5,7 @@
 #include HEADER_SHARED(avz_connector.h)
 #include HEADER_ORIGINAL(avz_pvz_struct.h)
 
+// This file(part) is strongly platform dependent.
 
 // Default arguments are given in shared/shared_avz_connector.h
 template <typename Op>

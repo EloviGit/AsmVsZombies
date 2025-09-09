@@ -5,6 +5,7 @@
 #include HEADER_SHARED(avz_asm.h)
 #include HEADER_SHARED(avz_state_hook.h)
 
+// This file is strongly platform dependent.
 
 class __AProfiler : public AOrderedEnterFightHook<-32768> {
 protected:

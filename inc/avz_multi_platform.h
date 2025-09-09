@@ -13,9 +13,9 @@
 // Generate new filename: (id, header) -> id/id_header
 #define __ANEW_FILENAME(id, header)                 __ASTR(id/__AJOIN(id, header))
 
-// Strong platform dependent: this feature is not supported by all platforms.
-// Weak platform dependent: this feature is supported by all platforms, but implemented in different ways.
-// Platform independent: this feature is supported in all platforms and works the same.
+// Strong platform dependent: this feature is not visible in all platforms.
+// Weak platform dependent: this feature share the same signature, but implemented in different ways.
+// Platform independent: this feature share the same code.
 
 // compile-time option: -DPLATFORM=ORIGINAL, -DPLATFORM=PVZ_EMULATOR
 

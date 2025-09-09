@@ -8,6 +8,8 @@
 #include <cstdint>
 #include <type_traits>
 
+// This file(part) is strongly platform dependent.
+// Outside this file, APvzStructs are used in a weak platform dependent way.
 
 __APvzStruct_ForwardDeclare(__ORIGINAL_str)
 
