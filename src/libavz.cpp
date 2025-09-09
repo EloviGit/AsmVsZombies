@@ -1,4 +1,2 @@
-#include "avz_multi_platform.h"
+#include "libavz.h"
 #include HEADER_PLATFORM(libavz.cpp)
-
-

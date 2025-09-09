@@ -2,9 +2,19 @@
 #include HEADER_ORIGINAL(libavz.h)
 
 
+#include HEADER_ORIGINAL(avz_asm.cpp)
+#include HEADER_ORIGINAL(avz_card.cpp)
+#include HEADER_ORIGINAL(avz_click.cpp)
+#include HEADER_ORIGINAL(avz_cob_manager.cpp)
+#include HEADER_ORIGINAL(avz_connector.cpp)
+#include HEADER_ORIGINAL(avz_coroutine.cpp)
+#include HEADER_ORIGINAL(avz_game_controllor.cpp)
 #include HEADER_ORIGINAL(avz_hook.cpp)
-
-
-
-
-
+#include HEADER_ORIGINAL(avz_logger.cpp)
+#include HEADER_ORIGINAL(avz_memory.cpp)
+#include HEADER_ORIGINAL(avz_painter.cpp)
+#include HEADER_ORIGINAL(avz_replay.cpp)
+#include HEADER_ORIGINAL(avz_script.cpp)
+#include HEADER_ORIGINAL(avz_smart.cpp)
+#include HEADER_ORIGINAL(avz_tick_runner.cpp)
+#include HEADER_ORIGINAL(avz_time_queue.cpp)

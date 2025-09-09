@@ -3,11 +3,13 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_connector.h)
+#include HEADER_ORIGINAL(avz_pvz_struct.h)
 
 
+// Default arguments are given in shared/shared_avz_connector.h
 template <typename Op>
     requires __AIsCoOpOrOp<Op>
-AConnectHandle AConnect(AKey key, Op&& op, int priority = 0, int runMode = ATickRunner::GLOBAL) {
+AConnectHandle AConnect(AKey key, Op&& op, int priority, int runMode) {
     if (__AKeyManager::ToValidKey(key) != __AKeyManager::VALID)
         return AConnectHandle();
     auto wasPressed = std::make_shared<bool>(false);
