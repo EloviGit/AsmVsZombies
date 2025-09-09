@@ -12,6 +12,7 @@
 #include HEADER_SHARED(avz_exception.h)
 #include HEADER_SHARED(avz_global.h)
 #include HEADER_SHARED(avz_logger.h)
+#include HEADER_SHARED(avz_memory.h)
 #include HEADER_SHARED(avz_painter.h)
 #include HEADER_SHARED(avz_pvz_struct.h)
 #include HEADER_SHARED(avz_seh.h)
@@ -24,7 +25,6 @@
 
 // #include HEADER_SHARED(avz_game_controllor.h)
 // #include HEADER_SHARED(avz_iterator.h)
-// #include HEADER_SHARED(avz_memory.h)
 // #include HEADER_SHARED(avz_replay.h)
 // #include HEADER_SHARED(avz_script.h)
 
