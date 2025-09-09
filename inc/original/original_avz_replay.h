@@ -247,8 +247,6 @@ protected:
     uint8_t _zombieSpawnCodeRecover = 0x74;
     int _cursorLastPressType = INT_MIN;
     int _lastWave = INT_MIN;
-};
-
-inline AReplay aReplay;
+} inline aReplay;
 
 #endif
