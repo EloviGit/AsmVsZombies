@@ -11,6 +11,7 @@
 #include <thread>
 #include <condition_variable>
 
+// This file is strongly platform dependent.
 
 class AAbstractCompressor {
 public:

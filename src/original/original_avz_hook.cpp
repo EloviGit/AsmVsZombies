@@ -1,7 +1,7 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-// This file is Strong Platform Dependent. Added into original_libavz.cpp
+// This file is strongly platform dependent.
 
 
 extern "C" __declspec(dllexport) void __cdecl __AScriptHook() {

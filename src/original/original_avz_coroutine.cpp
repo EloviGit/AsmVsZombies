@@ -1,8 +1,6 @@
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
 
-// This file used AGetPvzBase(), can not be shared.
-
 
 std::unordered_set<void*> __ACoHandleManager::_handleSet;
 

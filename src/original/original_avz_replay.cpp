@@ -3,7 +3,7 @@
 #include HEADER_ORIGINAL(libavz.h)
 #include <filesystem>
 
-// This file used AGetPvzBase(), can not be shared.
+// This file is strongly platform dependent.
 
 
 namespace fs = std::filesystem;

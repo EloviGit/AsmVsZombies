@@ -1,8 +1,6 @@
 #ifndef __AVZ_H__
 #define __AVZ_H__
 
-// This file is platform independent.
-
 #include "libavz.h"
 
 void AScript();
