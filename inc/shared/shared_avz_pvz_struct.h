@@ -182,5 +182,8 @@ __ANodiscard AAnimation* AGetAnimationArray();
 __ANodiscard inline bool AMainObjectIsValid() { return AGetMainObject() != nullptr; }
 __ANodiscard inline bool APvzBaseIsValid() { return AGetPvzBase() != nullptr; }
 
+// If an interface only needs pointers to pvz structs, use this file.
+// If an interface needs member functions, use platform specific files instead.
+
 
 #endif

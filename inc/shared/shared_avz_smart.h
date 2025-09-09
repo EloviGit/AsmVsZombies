@@ -1,10 +1,8 @@
-#ifndef __ORIGINAL_AVZ_SMART_H__
-#define __ORIGINAL_AVZ_SMART_H__
+#ifndef __SHARED_AVZ_SMART_H__
+#define __SHARED_AVZ_SMART_H__
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_tick_runner.h)
-
-
 
 
 class AItemCollector : public ATickRunnerWithNoStart,
@@ -213,7 +211,6 @@ public:
         _isUseCoffee = isUseCoffee;
     }
 };
-
 
 
 #endif

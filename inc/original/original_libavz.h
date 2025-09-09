@@ -7,8 +7,6 @@
 
 #include HEADER_SHARED(libavz.h)
 
-#include HEADER_ORIGINAL(avz_cob_manager.h)
-#include HEADER_ORIGINAL(avz_connector.h)
 #include HEADER_ORIGINAL(avz_game_controllor.h)
 #include HEADER_ORIGINAL(avz_iterator.h)
 #include HEADER_ORIGINAL(avz_logger.h)
@@ -17,8 +15,6 @@
 #include HEADER_ORIGINAL(avz_pvz_struct.h)
 #include HEADER_ORIGINAL(avz_replay.h)
 #include HEADER_ORIGINAL(avz_script.h)
-#include HEADER_ORIGINAL(avz_smart.h)
-#include HEADER_ORIGINAL(avz_timeline.h)
 
 
 inline AItemCollector aItemCollector;
@@ -31,7 +27,6 @@ inline AAliveFilter<ASeed> aAliveSeedFilter;
 inline AAliveFilter<AItem> aAliveItemFilter;
 inline AAliveFilter<APlaceItem> aAlivePlaceItemFilter;
 inline APainter aPainter;
-
 
 
 #endif

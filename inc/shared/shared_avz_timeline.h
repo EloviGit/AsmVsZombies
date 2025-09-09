@@ -1,8 +1,8 @@
-#ifndef __ORIGINAL_AVZ_TIMELINE_H__
-#define __ORIGINAL_AVZ_TIMELINE_H__
+#ifndef __SHARED_AVZ_TIMELINE_H__
+#define __SHARED_AVZ_TIMELINE_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_connector.h)
+#include HEADER_SHARED(avz_connector.h)
 #include <variant>
 
 
@@ -158,6 +158,7 @@ inline ATimeline operator-(const ATimeline& timeline, ATimeOffset offset) {
 }
 
 using ARelOp __ADeprecated("请使用 ATimeline") = ATimeline;
+
 
 
 
