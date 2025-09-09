@@ -327,5 +327,3 @@ void __AScriptManager::BackToMain(bool isSaveData) {
     this->isSaveData = isSaveData;
     enterGameCountdown = 5;
 }
-
-

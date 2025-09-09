@@ -71,5 +71,3 @@ void AClickGrid(int row, float col, int offset) {
     y += offset;
     ALeftClick(x, y);
 }
-
-

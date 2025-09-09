@@ -49,5 +49,3 @@ BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
     }
     return TRUE; // succesful
 }
-
-

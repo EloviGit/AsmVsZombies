@@ -134,5 +134,4 @@ public:
 template <typename... Hooks>
 constexpr int ABeforeHook = __AMinHookT<Hooks...>::VALUE - 1;
 
-
 #endif

@@ -3,6 +3,7 @@
 
 // This file used AGetPvzBase(), can not be shared.
 
+
 static bool __isInPaintTickRunner = false;
 
 void APainter::SetFont(const std::string& name) {
@@ -667,5 +668,3 @@ IDirectDrawSurface7* __ATexture::CreateTextureSurface(int theWidth, int theHeigh
     textInfo->ddraw->CreateSurface(&aDesc, &aSurface, nullptr);
     return aSurface;
 }
-
-

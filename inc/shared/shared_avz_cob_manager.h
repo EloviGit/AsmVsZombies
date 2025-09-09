@@ -326,5 +326,4 @@ protected:
     virtual void _BeforeScript() override;
 };
 
-
 #endif

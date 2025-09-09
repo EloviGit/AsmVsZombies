@@ -1,10 +1,8 @@
 #ifndef __ORIGINAL_AVZ_GAME_CONTROLLOR_H__
 #define __ORIGINAL_AVZ_GAME_CONTROLLOR_H__
 
-// This file used AGetPvzBase(), can not be shared.
-
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(avz_logger.h)
+#include HEADER_SHARED(avz_logger.h)
 #include HEADER_ORIGINAL(avz_memory.h)
 
 
@@ -84,9 +82,7 @@ protected:
     int _pvzWidth = 0;
 
     DWORD _rectColor = AArgb(0x7f, 0, 0, 0);
-};
-
-inline __AGameControllor __aGameControllor;
+} inline __aGameControllor;
 
 // 跳到游戏指定时刻
 // *** 注意使用此函数时不能使用高级暂停
@@ -140,7 +136,5 @@ inline void ASetAdvancedPause(bool isAdvancedPaused, bool isPlaySound = true, DW
 inline void ASetUpdateWindow(bool isUpdateWindow) {
     __aGameControllor.SetUpdateWindow(isUpdateWindow);
 }
-
-
 
 #endif

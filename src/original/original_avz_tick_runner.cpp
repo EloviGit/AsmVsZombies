@@ -2,9 +2,6 @@
 #include HEADER_ORIGINAL(libavz.h)
 
 
-
-
-
 void __ATickManager::RunQueue() {
     for (auto&& pool : _priQue) {
         // 不用这种遍历如果中途新增了元素可能会访问非法内存
@@ -97,6 +94,3 @@ void ATickHandle::Stop() {
     __aig.tickManagers[_runMode].Remove(_priority, _idx);
     _isStopped = true;
 }
-
-
-

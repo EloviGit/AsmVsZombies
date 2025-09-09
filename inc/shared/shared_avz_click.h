@@ -49,5 +49,4 @@ void AShovel(int row, float col, bool pumpkin);
 void AShovel(int row, float col, int targetType = -1);
 void AShovel(const std::vector<AShovelPosition>& lst);
 
-
 #endif

@@ -53,4 +53,3 @@ __ADefineHookClassFuncs(AfterInject);
 __ADefineHookClassFuncs(BeforeTick);
 __ADefineHookClassFuncs(AfterTick);
 __ADefineHookClassFuncs(BeforeExit);
-

@@ -4,16 +4,12 @@
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_tick_runner.h)
 #include HEADER_ORIGINAL(avz_memory.h)
-
 #include <algorithm>
 #include <atomic>
 #include <map>
 #include <mutex>
 #include <thread>
 #include <condition_variable>
-
-
-
 
 
 class AAbstractCompressor {
@@ -253,7 +249,5 @@ protected:
 };
 
 inline AReplay aReplay;
-
-
 
 #endif

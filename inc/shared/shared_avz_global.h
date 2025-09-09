@@ -4,7 +4,6 @@
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_exception.h)
 #include HEADER_SHARED(avz_types.h)
-
 #include <Windows.h>
 #include <algorithm>
 #include <map>
@@ -89,9 +88,7 @@ struct __AInternalGlobal {
         static std::vector<AOperation> _;
         return _;
     }
-};
-
-inline __AInternalGlobal __aig;
+} inline __aig;
 
 // Never referred function. Is it necessary?
 inline HINSTANCE AGetDllInstance() {

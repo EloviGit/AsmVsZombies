@@ -161,5 +161,3 @@ ALogger<AConsole>::~ALogger() {
         FreeConsole();
     }
 }
-
-

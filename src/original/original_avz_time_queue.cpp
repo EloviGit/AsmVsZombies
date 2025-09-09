@@ -262,5 +262,3 @@ ATime ANowTime(bool allowNegativeTime) {
 __ANodiscard ATime ANowDelayTime(int delayTime) {
     return ANowTime() + delayTime;
 }
-
-

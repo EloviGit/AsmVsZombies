@@ -3,7 +3,6 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_types.h)
-
 #include <Windows.h>
 #include <cstdint>
 #include <type_traits>
@@ -28,7 +27,6 @@
 // struct AAnimationOffset; // 动画地址偏移
 // struct AAnimation;       // 动画
 // struct ACardSlot;        // 卡槽
-
 
 class APvzStruct {
     __ADeleteCopyAndMove(APvzStruct);
@@ -184,6 +182,5 @@ __ANodiscard inline bool APvzBaseIsValid() { return AGetPvzBase() != nullptr; }
 
 // If an interface only needs pointers to pvz structs, use this file.
 // If an interface needs member functions, use platform specific files instead.
-
 
 #endif

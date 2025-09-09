@@ -4,8 +4,6 @@
 // This file used AGetPvzBase(), can not be shared.
 
 
-
-
 // 返回鼠标所在行
 int AMouseRow() {
     static int lastValue = -1;
@@ -453,5 +451,3 @@ void AFieldInfo::_BeforeScript() {
     hasPool = AAsm::HasPool();
     nRows = 6 - std::count(rowType + 1, rowType + 7, ARowType::NONE);
 }
-
-

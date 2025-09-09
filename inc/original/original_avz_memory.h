@@ -298,6 +298,4 @@ protected:
     virtual void _BeforeScript() override;
 } inline aFieldInfo;
 
-
-
 #endif

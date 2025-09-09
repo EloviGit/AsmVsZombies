@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 
+
 using ARetVoidFuncPtr = void (*)();
 using ARetBoolFunc = std::function<bool()>;
 using ARetVoidFunc = std::function<void()>;

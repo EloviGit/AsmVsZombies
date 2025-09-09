@@ -306,6 +306,4 @@ AAliveFilter<T> AObjSelector(auto (T::*prop)(), auto... args) {
     });
 }
 
-
-
 #endif

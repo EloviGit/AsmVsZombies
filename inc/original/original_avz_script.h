@@ -6,7 +6,6 @@
 #include HEADER_SHARED(avz_state_hook.h)
 
 
-
 class __AProfiler : public AOrderedEnterFightHook<-32768> {
 protected:
     void _EnterFight() override {
@@ -68,9 +67,7 @@ public:
     void EnterGame(int gameMode, bool hasContinueDialog);
     void BackToMain(bool isSaveData);
     void FastSaveLoad();
-};
-
-inline __AScriptManager __aScriptManager;
+} inline __aScriptManager;
 
 // 阻塞运行直到达到目标时间点
 __ADeprecated("请使用 ACoroutine ACoScript() 和 co_await ATime())") inline void AWaitUntil(int wave, int time) {
@@ -108,7 +105,5 @@ inline void AEnterGame(int gameMode = AAsm::SURVIVAL_ENDLESS_STAGE_3, bool hasCo
 inline void ABackToMain(bool isSaveData = true) {
     __aScriptManager.BackToMain(isSaveData);
 }
-
-
 
 #endif

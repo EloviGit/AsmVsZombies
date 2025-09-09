@@ -4,7 +4,6 @@
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_types.h)
 #include HEADER_SHARED(avz_pvz_struct.h)
-
 #include <Windows.h>
 #include <cstdint>
 #include <type_traits>

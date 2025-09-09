@@ -386,5 +386,3 @@ __AKeyManager::__AKeyManager() {
     __AddKeyMap(VK_PA1);
     __AddKeyMap(VK_OEM_CLEAR);
 }
-
-

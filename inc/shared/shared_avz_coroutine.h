@@ -22,7 +22,7 @@ public:
 protected:
     static std::unordered_set<void*> _handleSet;
     virtual void _ExitFight() override;
-};
+} inline __aCoHandleManager;
 
 class __AWait {
 public:
@@ -94,8 +94,6 @@ protected:
     std::coroutine_handle<promise_type> _handle;
 };
 
-inline __ACoHandleManager __aCoHandleManager;
-
 using ACoroutineOp = std::function<ACoroutine()>;
 
 template <typename T>
@@ -138,6 +136,5 @@ protected:
 };
 
 #define ACoLaunch(...) ACoFunctor {__VA_ARGS__}()
-
 
 #endif

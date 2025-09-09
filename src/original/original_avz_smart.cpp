@@ -2,8 +2,6 @@
 #include HEADER_ORIGINAL(libavz.h)
 
 
-
-
 ////////////////////////////////////////
 //  ItemCollector
 ////////////////////////////////////////
@@ -346,5 +344,3 @@ void APlantFixer::_Run() {
             needPlantGrid.col, true);
     }
 }
-
-

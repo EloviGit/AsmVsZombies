@@ -41,9 +41,7 @@ protected:
 
     virtual void _BeforeScript() override;
     virtual void _EnterFight() override;
-};
-
-inline __ACardManager __aCardManager;
+} inline __aCardManager;
 
 // 选择一堆卡片
 // ***注意：卡片名称与英文原版图鉴一致
@@ -137,6 +135,5 @@ std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, int row,
 std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, const std::vector<APosition>& lst);
 std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, const std::vector<AGrid>& lst);
 std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, std::initializer_list<AGrid> lst);
-
 
 #endif

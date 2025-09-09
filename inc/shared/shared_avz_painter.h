@@ -1,9 +1,8 @@
-#ifndef __ORIGINAL_AVZ_PAINTER_H__
-#define __ORIGINAL_AVZ_PAINTER_H__
+#ifndef __SHARED_AVZ_PAINTER_H__
+#define __SHARED_AVZ_PAINTER_H__
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_state_hook.h)
-
 #include <d3d.h>
 #include <list>
 #include <memory>
@@ -11,7 +10,6 @@
 #include <unordered_set>
 #include <queue>
 #include <variant>
-
 
 
 struct __AGeoVertex {
@@ -246,7 +244,5 @@ class ATickPainter {
 public:
 
 };
-
-
 
 #endif

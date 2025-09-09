@@ -8,6 +8,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS 1
 
+
 class ASeh {
     static LRESULT CALLBACK SEHWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
     static long __stdcall UnhandledExceptionFilter(LPEXCEPTION_POINTERS lpExceptPtr);
@@ -22,8 +23,6 @@ class ASeh {
 public:
     ASeh();
     ~ASeh();
-};
-
-inline ASeh __aSeh;
+} inline__aSeh;
 
 #endif

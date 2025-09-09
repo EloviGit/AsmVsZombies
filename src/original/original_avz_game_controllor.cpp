@@ -4,9 +4,6 @@
 // This file used AGetPvzBase(), can not be shared.
 
 
-
-
-
 namespace {
 APainter _rectPainter;
 }
@@ -101,5 +98,3 @@ void __AGameControllor::_ExitFight() {
     AMRef<uint16_t>(_UPDATE_ASM_ADDR_BEGIN) = _oriAsm;
     isUpdateWindow = true;
 }
-
-

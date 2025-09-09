@@ -3,6 +3,7 @@
 
 // This file used AGetPvzBase(), can not be shared.
 
+
 std::unordered_set<void*> __ACoHandleManager::_handleSet;
 
 void __ACoHandleManager::_ExitFight() {
@@ -61,5 +62,3 @@ void ACoFunctor::operator()() {
     auto co = (*_functor)();
     co.SetPtr(_functor);
 }
-
-

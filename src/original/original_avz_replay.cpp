@@ -1,12 +1,9 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_ORIGINAL(libavz.h)
-
-// This file used AGetPvzBase(), can not be shared.
-
 #include <filesystem>
 
-
+// This file used AGetPvzBase(), can not be shared.
 
 
 namespace fs = std::filesystem;
@@ -744,5 +741,3 @@ void AReplay::SetCompressor(AAbstractCompressor& compressor) {
     }
     _compressor = &compressor;
 }
-
-

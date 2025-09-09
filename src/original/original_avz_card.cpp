@@ -402,4 +402,3 @@ std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, const st
 std::vector<APlant*> ACard(const std::vector<APlantType>& plantTypeVec, std::initializer_list<AGrid> lst) {
     return ACard(plantTypeVec, __AVecGridToVecPosition(lst));
 }
-

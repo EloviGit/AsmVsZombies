@@ -6,6 +6,7 @@
 #include <map>
 #include <optional>
 
+
 struct __ABoolOperation {
     AOperation operation;
     bool isStopped = false;
@@ -106,6 +107,5 @@ inline void AAssumeWavelength(const std::vector<ATime>& lst) {
 inline void AAssumeWavelength(int wave, int waveLength) {
     __aOpQueueManager.AssumeWavelength({{wave, waveLength}});
 }
-
 
 #endif
