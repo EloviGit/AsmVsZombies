@@ -1,10 +1,14 @@
-#ifndef __ORIGINAL_AVZ_ITERATOR_H__
-#define __ORIGINAL_AVZ_ITERATOR_H__
+#ifndef __SHARED_AVZ_ITERATOR_H__
+#define __SHARED_AVZ_ITERATOR_H__
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_global.h)
-#include HEADER_ORIGINAL(avz_memory.h)
+#include HEADER_SHARED(avz_memory.h)
+#include HEADER_PLATFORM(avz_pvz_struct.h)
 
+// This file is weakly platform dependent.
+// It requires APvzStruct functions but not requiring inner implementation.
+// The code here can be shared between different platforms.
 
 template <typename T>
 using __APredicateT = std::function<bool(T* ptr)>;
@@ -305,5 +309,6 @@ AAliveFilter<T> AObjSelector(auto (T::*prop)(), auto... args) {
         return true;
     });
 }
+
 
 #endif

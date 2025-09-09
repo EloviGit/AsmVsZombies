@@ -6,7 +6,6 @@
 
 #include HEADER_ORIGINAL(avz_connector.h)
 #include HEADER_ORIGINAL(avz_game_controllor.h)
-#include HEADER_ORIGINAL(avz_iterator.h)
 #include HEADER_ORIGINAL(avz_memory.h)
 #include HEADER_ORIGINAL(avz_pvz_struct.h)
 #include HEADER_ORIGINAL(avz_replay.h)
