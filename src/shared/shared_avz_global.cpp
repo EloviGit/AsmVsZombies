@@ -1,5 +1,5 @@
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(libavz.h)
+#include "libavz.h"
 
 #include <codecvt>
 

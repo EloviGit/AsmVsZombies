@@ -6,8 +6,6 @@
 #include HEADER_ORIGINAL(avz_memory.h)
 
 
-
-
 template <typename T>
 using __APredicateT = std::function<bool(T* ptr)>;
 

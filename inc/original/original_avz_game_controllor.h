@@ -8,9 +8,6 @@
 #include HEADER_ORIGINAL(avz_memory.h)
 
 
-
-
-
 class __AGameControllor : public AOrderedExitFightHook<-1> {
 public:
     __AGameControllor();
@@ -25,7 +22,7 @@ public:
             return;
         isSkipTick = [pre = std::forward<Pre>(pre), //
                          callback = std::forward<CallBack>(callback), this]() mutable {
-            auto gameUi = APvzBase_GameUi();
+            auto gameUi = AGetPvzBase()->GameUi();
             if (gameUi == 3 && pre())
                 return true;
             isSkipTick = []() -> bool { return false; };

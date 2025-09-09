@@ -30,7 +30,7 @@ bool __AWait::await_ready() const {
 void __AWait::await_resume() {
     // 不在战斗界面直接抛出异常
     // 这会直接让协程停止运行
-    if (AGetPvzBase()->MainObject() == nullptr || APvzBase_GameUi() != 3)
+    if (!AMainObjectIsValid() || AGetPvzBase()->GameUi() != 3)
         AExitFight();
 }
 

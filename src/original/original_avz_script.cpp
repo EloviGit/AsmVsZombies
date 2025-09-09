@@ -4,9 +4,6 @@
 // This file used AGetPvzBase(), can not be shared.
 
 
-
-
-
 void __AScriptManager::GlobalInit() {
     static bool isInit = false;
     if (isInit)
@@ -24,7 +21,7 @@ void __AScriptManager::GlobalInit() {
 }
 
 bool __AScriptManager::MemoryInit() {
-    int gameUi = APvzBase_GameUi();
+    int gameUi = AGetPvzBase()->GameUi();
     if (gameUi != 2 && gameUi != 3)
         return false;
     int gameIdx = AGetPvzBase()->MRef<int>(0x7f8); // 关卡序号
@@ -54,11 +51,11 @@ void __AScriptManager::LoadScript() {
     RunTotal();
 
     // 等待游戏进入战斗界面
-    while (APvzBase_GameUi() == 2 && AGetPvzBase()->MainObject())
+    while (AGetPvzBase()->GameUi() == 2 && AMainObjectIsValid())
         AAsm::GameSleepLoop();
 
     // 等待游戏结束
-    while (APvzBase_GameUi() == 3 && AGetPvzBase()->MainObject())
+    while (AGetPvzBase()->GameUi() == 3 && AMainObjectIsValid())
         AAsm::GameSleepLoop();
 
     __APublicExitFightHook::RunAll();
@@ -66,7 +63,7 @@ void __AScriptManager::LoadScript() {
 
     if (scriptReloadMode != AReloadMode::MAIN_UI_OR_FIGHT_UI) {
         // 如果战斗界面不允许重新注入则等待回主界面
-        while (AGetPvzBase()->MainObject())
+        while (AMainObjectIsValid())
             AAsm::GameSleepLoop();
     }
 
@@ -76,7 +73,7 @@ void __AScriptManager::LoadScript() {
 }
 
 void __AScriptManager::RunScript() {
-    int gameUi = APvzBase_GameUi();
+    int gameUi = AGetPvzBase()->GameUi();
 
     // 如果在非战斗界面还检测到开启了不更新窗口
     // 那么直接强制开启更新窗口
@@ -203,7 +200,7 @@ void __AScriptManager::ScriptHook() {
     if (!__aGameControllor.isUpdateWindow)
         return;
     AAsm::GameTotalLoop();
-    while (__aGameControllor.isSkipTick() && AGetPvzBase()->MainObject()) {
+    while (__aGameControllor.isSkipTick() && AMainObjectIsValid()) {
         RunTotal();
         if (__aGameControllor.isAdvancedPaused)
             return;
@@ -221,7 +218,7 @@ void __AScriptManager::ScriptHook() {
 }
 
 void __AScriptManager::WaitForFight(bool isSkipTick) {
-    if (APvzBase_GameUi() == 3)
+    if (AGetPvzBase()->GameUi() == 3)
         return;
     if (!isBlockable) {
         aLogger->Error("连接和帧运行内部不允许调用 WaitForFight");
@@ -234,21 +231,21 @@ void __AScriptManager::WaitForFight(bool isSkipTick) {
     }
     ++blockDepth;
 
-    for (int cnt = 0; APvzBase_GameUi() == 2 && cnt < 2; ++cnt) {
+    for (int cnt = 0; AGetPvzBase()->GameUi() == 2 && cnt < 2; ++cnt) {
         // 画面刷新几帧防止被系统杀死
         AAsm::GameSleepLoop();
     }
     if (isSkipTick) {
-        for (; APvzBase_GameUi() == 2;) {
+        for (; AGetPvzBase()->GameUi() == 2;) {
             RunTotal();
             AAsm::UpdateFrame();
         }
     }
-    for (; APvzBase_GameUi() == 2;)
+    for (; AGetPvzBase()->GameUi() == 2;)
         AAsm::GameSleepLoop();
 
     --blockDepth;
-    if (!AGetPvzBase()->MainObject())
+    if (!AMainObjectIsValid())
         AExitFight();
     __aOpQueueManager.UpdateRefreshTime(); // 刷新一次
     __APublicEnterFightHook::RunAll();
@@ -277,7 +274,7 @@ void __AScriptManager::WaitUntil(int wave, int time) {
     ++blockDepth;
     while (ANowTime(wave) < time) {
         AAsm::GameSleepLoop();
-        if (!AGetPvzBase()->MainObject()) {
+        if (!AMainObjectIsValid()) {
             --blockDepth;
             AExitFight();
         }

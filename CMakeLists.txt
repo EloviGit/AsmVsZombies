@@ -16,13 +16,9 @@ aux_source_directory(src/shared shared_srcs)
 aux_source_directory(src avz_srcs)
 aux_source_directory(src/minhook minhook_srcs)
 
-# build shared_libavz for all platforms
-add_library(avz_shared ${shared_srcs})
-target_link_libraries(avz_shared PRIVATE compile_options)
-
 # build libavz under original pvz
-add_library(avz_original ${avz_srcs} ${minhook_srcs})
-target_link_libraries(avz_original PRIVATE compile_options avz_shared)
+add_library(avz_original ${avz_srcs} ${shared_srcs} ${minhook_srcs})
+target_link_libraries(avz_original PRIVATE compile_options)
 target_compile_definitions(avz_original PRIVATE -DPLATFORM_ORIGINAL)
 
 # # build libavz under pvz-emulator

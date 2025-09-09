@@ -10,30 +10,12 @@
 #include <type_traits>
 
 
-struct APvzBase;         // 游戏主体
-struct AMainObject;      // 主要对象
-struct APlant;           // 植物
-struct AZombie;          // 僵尸
-struct ASeed;            // 种子（卡片）
-struct AItem;            // 收集物
-struct APlaceItem;       // 场地物品
-struct AMouseWindow;     // 鼠标窗口
-struct ATopMouseWindow;  // 顶层鼠标窗口
-struct ALetsRockBtn;     // lets_rock 按钮
-struct ASelectCardUi_m;  // 选卡界面在 main_object
-struct ASelectCardUi_p;  // 选卡界面在 pvz_base
-struct AMouse;           // 鼠标
-struct AMouseExtra;      // 鼠标额外属性
-struct AWords;           // 文字属性
-struct AAnimationMain;   // 动画主要对象
-struct AAnimationOffset; // 动画地址偏移
-struct AAnimation;       // 动画
-struct ACardSlot;        // 卡槽
+__APvzStruct_ForwardDeclare(__ORIGINAL_IDENTIFIER)
 
+__APvzStruct_DefineBase(APvzStruct, __ORIGINAL_IDENTIFIER);
 
 // 游戏基址
-struct APvzBase : public APvzStruct {
-    __ADeleteCopyAndMove(APvzBase);
+__APvzStruct_DefineStruct(APvzBase, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     // 当前游戏信息和对象
@@ -92,22 +74,11 @@ public:
     }
 };
 
-__ANodiscard inline APvzBase* AGetPvzBase() {
-    return *(APvzBase**)0x6a9ec0;
-}
-
-__ANodiscard inline bool APvzBaseIsValid() {
-    return AGetPvzBase() != nullptr;
-}
-
-__ANodiscard inline int& APvzBase_GameUi() {
-    return AGetPvzBase()->GameUi();
-}
-
-
 // 当前游戏信息和对象
-struct AMainObject : public APvzStruct {
-    __ADeleteCopyAndMove(AMainObject);
+__APvzStruct_DefineStruct(AMainObject, __ORIGINAL_IDENTIFIER, APvzStruct) {
+
+protected:
+    uint8_t _data[0x57b0];
 
 public:
     // 僵尸内存数组
@@ -334,17 +305,8 @@ public:
     }
 };
 
-__ANodiscard inline AMainObject* AGetMainObject() {
-    return AGetPvzBase()->MainObject();
-}
-
-__ANodiscard inline bool AMainObjectIsValid() {
-    return AGetMainObject() != nullptr;
-}
-
 // 动画主要属性
-struct AAnimationMain : public APvzStruct {
-    __ADeleteCopyAndMove(AAnimationMain);
+__APvzStruct_DefineStruct(AAnimationMain, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     // 动画偏移
@@ -354,8 +316,7 @@ public:
 };
 
 // 动画偏移属性
-struct AAnimationOffset : public APvzStruct {
-    __ADeleteCopyAndMove(AAnimationOffset);
+__APvzStruct_DefineStruct(AAnimationOffset, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     // 动画内存数组
@@ -365,8 +326,7 @@ public:
 };
 
 // 动画属性
-struct AAnimation : public APvzStruct {
-    __ADeleteCopyAndMove(AAnimation);
+__APvzStruct_DefineStruct(AAnimation, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 protected:
     uint8_t _data[0xa0];
@@ -378,13 +338,8 @@ public:
     }
 };
 
-__ANodiscard inline AAnimation* AGetAnimationArray() {
-    return AGetPvzBase()->AnimationMain()->AnimationOffset()->AnimationArray();
-}
-
 // 植物内存属性
-struct APlant : public APvzStruct {
-    __ADeleteCopyAndMove(APlant);
+__APvzStruct_DefineStruct(APlant, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 protected:
     uint8_t _data[0x14c];
@@ -540,8 +495,8 @@ public:
     }
 };
 
-struct AZombie : public APvzStruct {
-    __ADeleteCopyAndMove(AZombie);
+// 僵尸内存属性
+__APvzStruct_DefineStruct(AZombie, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 protected:
     uint8_t _data[0x15c];
@@ -723,8 +678,7 @@ public:
 };
 
 // 种子 / 卡牌 属性
-struct ASeed : public APvzStruct {
-    __ADeleteCopyAndMove(ASeed);
+__APvzStruct_DefineStruct(ASeed, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 protected:
     uint8_t _data[0x50];
@@ -790,8 +744,7 @@ public:
 };
 
 // 收集物品属性
-struct AItem : public APvzStruct {
-    __ADeleteCopyAndMove(AItem);
+__APvzStruct_DefineStruct(AItem, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 protected:
     uint8_t _data[0xd8];
@@ -839,8 +792,7 @@ public:
 };
 
 // 场地物品属性
-struct APlaceItem : public APvzStruct {
-    __ADeleteCopyAndMove(APlaceItem);
+__APvzStruct_DefineStruct(APlaceItem, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 protected:
     uint8_t _data[0xec];
@@ -887,8 +839,7 @@ public:
     }
 };
 
-struct ATopMouseWindow : public APvzStruct {
-    __ADeleteCopyAndMove(ATopMouseWindow);
+__APvzStruct_DefineStruct(ATopMouseWindow, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     // 窗口类型(1图鉴,2暂停,3是否,4商店等,6用户管理,8菜单)
@@ -901,8 +852,7 @@ public:
     }
 };
 
-struct AMouseWindow : public APvzStruct {
-    __ADeleteCopyAndMove(AMouseWindow);
+__APvzStruct_DefineStruct(AMouseWindow, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     __ANodiscard ATopMouseWindow* TopWindow() noexcept {
@@ -922,8 +872,7 @@ public:
     }
 };
 
-struct ASelectCardUi_m : public APvzStruct {
-    __ADeleteCopyAndMove(ASelectCardUi_m);
+__APvzStruct_DefineStruct(ASelectCardUi_m, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     __ANodiscard int& OrizontalScreenOffset() noexcept {
@@ -935,8 +884,7 @@ public:
     }
 };
 
-struct ASelectCardUi_p : public APvzStruct {
-    __ADeleteCopyAndMove(ASelectCardUi_p);
+__APvzStruct_DefineStruct(ASelectCardUi_p, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     __ANodiscard ALetsRockBtn* LetsRockBtn() noexcept {
@@ -954,8 +902,7 @@ public:
     }
 };
 
-struct ALetsRockBtn : public APvzStruct {
-    __ADeleteCopyAndMove(ALetsRockBtn);
+__APvzStruct_DefineStruct(ALetsRockBtn, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     __ANodiscard bool& IsUnusable() noexcept {
@@ -963,8 +910,7 @@ public:
     }
 };
 
-struct AMouse : public APvzStruct {
-    __ADeleteCopyAndMove(AMouse);
+__APvzStruct_DefineStruct(AMouse, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     // 鼠标上物品的类型
@@ -981,8 +927,7 @@ public:
     }
 };
 
-struct AMouseExtra : public APvzStruct {
-    __ADeleteCopyAndMove(AMouseExtra);
+__APvzStruct_DefineStruct(AMouseExtra, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     __ANodiscard int& Row() noexcept {
@@ -990,8 +935,7 @@ public:
     }
 };
 
-struct AWords : public APvzStruct {
-    __ADeleteCopyAndMove(AWords);
+__APvzStruct_DefineStruct(AWords, __ORIGINAL_IDENTIFIER, APvzStruct) {
 
 public:
     __ANodiscard int& DisappearCountdown() noexcept {
@@ -1000,5 +944,16 @@ public:
 };
 
 
+__ANodiscard inline APvzBase* AGetPvzBase() {
+    return *(APvzBase**)0x6a9ec0;
+}
+
+__ANodiscard inline AMainObject* AGetMainObject() {
+    return AGetPvzBase()->MainObject();
+}
+
+__ANodiscard inline AAnimation* AGetAnimationArray() {
+    return AGetPvzBase()->AnimationMain()->AnimationOffset()->AnimationArray();
+}
 
 #endif

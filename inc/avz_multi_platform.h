@@ -3,7 +3,6 @@
 
 // #include "avz_compile_time_checks.h"
 
-#define __AEXPAND(x)                    x
 #define __AJOIN_IMPL_(x, y)             x##_##y
 #define __AJOIN(x, y)                   __AJOIN_IMPL_(x, y)
 #define __ASTR_IMPL_(x)                 #x

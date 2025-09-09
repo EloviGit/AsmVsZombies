@@ -2,8 +2,6 @@
 #include HEADER_ORIGINAL(libavz.h)
 
 
-
-
 void AAbstractLogger::_BeforeScript() {
     _pattern = "#";
     _headerStyle = "[{wave}, {time}][{level}] ";

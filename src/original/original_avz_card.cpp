@@ -111,7 +111,7 @@ void __ACardManager::_EnterFight() {
     _cardNameToIndexMap.clear();
     _selectCardVec.clear();
 
-    if (APvzBase_GameUi() != 3)
+    if (AGetPvzBase()->GameUi() != 3)
         return;
 
     for (auto& seed : ABasicFilter<ASeed>()) {

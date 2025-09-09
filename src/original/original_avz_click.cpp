@@ -2,9 +2,6 @@
 #include HEADER_ORIGINAL(libavz.h)
 
 
-
-
-
 void AClickSeed(int seedIndex) {
     auto seed = AGetMainObject()->SeedArray() + seedIndex - 1;
     AAsm::MouseClick(int(seed->Abscissa() + seed->Width() / 2),

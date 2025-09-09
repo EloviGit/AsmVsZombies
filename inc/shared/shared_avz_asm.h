@@ -3,7 +3,6 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_pvz_struct.h)
-#include HEADER_SHARED(avz_types.h)
 
 
 // 使用汇编代码调用 PvZ 游戏内部的函数

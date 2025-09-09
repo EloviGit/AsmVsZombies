@@ -192,7 +192,7 @@ std::vector<int> AParseZombieTypeString(std::string_view str) {
 }
 
 void ASetZombies(const std::vector<int>& zombieType, ASetZombieMode mode) {
-    if (APvzBase_GameUi() == 3)
+    if (AGetPvzBase()->GameUi() == 3)
         aLogger->Warning("正在战斗模式下重设出怪；ASetZombies 应该在选卡前调用");
 
     std::vector<int> zombieTypeVec;
@@ -234,7 +234,7 @@ void ASetZombies(const std::vector<int>& zombieType, ASetZombieMode mode) {
         }
     }
 
-    if (APvzBase_GameUi() == 2)
+    if (AGetPvzBase()->GameUi() == 2)
         AUpdateZombiesPreview();
 }
 
@@ -336,7 +336,7 @@ void __AGameSpeedManager::Set(float x) {
 }
 
 bool AGameIsPaused() {
-    if (!AGetPvzBase()->MainObject())
+    if (!AMainObjectIsValid())
         return false;
     return AGetMainObject()->GamePaused() || AGetPvzBase()->MouseWindow()->TopWindow() != nullptr;
 }

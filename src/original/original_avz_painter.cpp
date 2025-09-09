@@ -3,8 +3,6 @@
 
 // This file used AGetPvzBase(), can not be shared.
 
-
-
 static bool __isInPaintTickRunner = false;
 
 void APainter::SetFont(const std::string& name) {
@@ -209,7 +207,7 @@ void __ABasicPainter::UpdatePaintTime() {
 }
 
 void __ABasicPainter::DrawEveryTick() {
-    if (AGetMainObject() == nullptr) {
+    if (!AMainObjectIsValid()) {
         return;
     }
     if (!__ABasicPainter::IsOpen3dAcceleration()) {

@@ -9,25 +9,26 @@
 #include <type_traits>
 
 
-struct APvzBase;         // 游戏主体
-struct AMainObject;      // 主要对象
-struct APlant;           // 植物
-struct AZombie;          // 僵尸
-struct ASeed;            // 种子（卡片）
-struct AItem;            // 收集物
-struct APlaceItem;       // 场地物品
-struct AMouseWindow;     // 鼠标窗口
-struct ATopMouseWindow;  // 顶层鼠标窗口
-struct ALetsRockBtn;     // lets_rock 按钮
-struct ASelectCardUi_m;  // 选卡界面在 main_object
-struct ASelectCardUi_p;  // 选卡界面在 pvz_base
-struct AMouse;           // 鼠标
-struct AMouseExtra;      // 鼠标额外属性
-struct AWords;           // 文字属性
-struct AAnimationMain;   // 动画主要对象
-struct AAnimationOffset; // 动画地址偏移
-struct AAnimation;       // 动画
-struct ACardSlot;        // 卡槽
+// struct APvzBase;         // 游戏主体
+// struct AMainObject;      // 主要对象
+// struct APlant;           // 植物
+// struct AZombie;          // 僵尸
+// struct ASeed;            // 种子（卡片）
+// struct AItem;            // 收集物
+// struct APlaceItem;       // 场地物品
+// struct AMouseWindow;     // 鼠标窗口
+// struct ATopMouseWindow;  // 顶层鼠标窗口
+// struct ALetsRockBtn;     // lets_rock 按钮
+// struct ASelectCardUi_m;  // 选卡界面在 main_object
+// struct ASelectCardUi_p;  // 选卡界面在 pvz_base
+// struct AMouse;           // 鼠标
+// struct AMouseExtra;      // 鼠标额外属性
+// struct AWords;           // 文字属性
+// struct AAnimationMain;   // 动画主要对象
+// struct AAnimationOffset; // 动画地址偏移
+// struct AAnimation;       // 动画
+// struct ACardSlot;        // 卡槽
+
 
 class APvzStruct {
     __ADeleteCopyAndMove(APvzStruct);
@@ -115,17 +116,71 @@ __ANodiscard T AMVal(uintptr_t first, Others... others) noexcept {
 }
 
 
-// struct APvzBase, AMainObject, AAnimation are platform dependent, 
-// and cannot be defined in this shared header.
-// Therefore, though these three functions can be forward declared here,
-// their implementations must be provided in platform-specific headers/source files.
-// Thus, any file referring to these functions are not added into shared files.
+#define __APvzStruct(Name, Platform)        __AJOIN(Name, Platform)
+// Concatenate struct name and platform identifier
+
+#define __APvzStruct_UsingShortName(Platform)                               \
+using APvzBase = __APvzStruct(APvzBase, Platform);                          \
+using AMainObject = __APvzStruct(AMainObject, Platform);                    \
+using APlant = __APvzStruct(APlant, Platform);                              \
+using AZombie = __APvzStruct(AZombie, Platform);                            \
+using ASeed = __APvzStruct(ASeed, Platform);                                \
+using AItem = __APvzStruct(AItem, Platform);                                \
+using APlaceItem = __APvzStruct(APlaceItem, Platform);                      \
+using AMouseWindow = __APvzStruct(AMouseWindow, Platform);                  \
+using ATopMouseWindow = __APvzStruct(ATopMouseWindow, Platform);            \
+using ALetsRockBtn = __APvzStruct(ALetsRockBtn, Platform);                  \
+using ASelectCardUi_m = __APvzStruct(ASelectCardUi_m, Platform);            \
+using ASelectCardUi_p = __APvzStruct(ASelectCardUi_p, Platform);            \
+using AMouse = __APvzStruct(AMouse, Platform);                              \
+using AMouseExtra = __APvzStruct(AMouseExtra, Platform);                    \
+using AWords = __APvzStruct(AWords, Platform);                              \
+using AAnimationMain = __APvzStruct(AAnimationMain, Platform);              \
+using AAnimationOffset = __APvzStruct(AAnimationOffset, Platform);          \
+using AAnimation = __APvzStruct(AAnimation, Platform);                      \
+using ACardSlot = __APvzStruct(ACardSlot, Platform);
+// Using short name for platform independent code.
+
+#define __APvzStruct_ForwardDeclare(Platform)                               \
+struct __APvzStruct(APvzBase, Platform);                                    \
+struct __APvzStruct(AMainObject, Platform);                                 \
+struct __APvzStruct(APlant, Platform);                                      \
+struct __APvzStruct(AZombie, Platform);                                     \
+struct __APvzStruct(ASeed, Platform);                                       \
+struct __APvzStruct(AItem, Platform);                                       \
+struct __APvzStruct(APlaceItem, Platform);                                  \
+struct __APvzStruct(AMouseWindow, Platform);                                \
+struct __APvzStruct(ATopMouseWindow, Platform);                             \
+struct __APvzStruct(ALetsRockBtn, Platform);                                \
+struct __APvzStruct(ASelectCardUi_m, Platform);                             \
+struct __APvzStruct(ASelectCardUi_p, Platform);                             \
+struct __APvzStruct(AMouse, Platform);                                      \
+struct __APvzStruct(AMouseExtra, Platform);                                 \
+struct __APvzStruct(AWords, Platform);                                      \
+struct __APvzStruct(AAnimationMain, Platform);                              \
+struct __APvzStruct(AAnimationOffset, Platform);                            \
+struct __APvzStruct(AAnimation, Platform);                                  \
+struct __APvzStruct(ACardSlot, Platform);
+// Forward declare all structs
+
+#define __APvzStruct_DefineBase(Base, Platform)                             \
+struct __APvzStruct(Base, Platform) : public Base {                         \
+protected: __APvzStruct_UsingShortName(Platform); };
+// Define struct base: APvzStruct_Platform : APvzStruct
+
+#define __APvzStruct_DefineStruct(Name, Platform, Base)                     \
+struct __APvzStruct(Name, Platform): public __APvzStruct(Base, Platform)
+// Define struct with base: AXXX_Platform : APvzStruct_Platform
+
+__APvzStruct_ForwardDeclare(__APlatformIdentifier)
+__APvzStruct_UsingShortName(__APlatformIdentifier)
 
 __ANodiscard APvzBase* AGetPvzBase();
-
 __ANodiscard AMainObject* AGetMainObject();
-
 __ANodiscard AAnimation* AGetAnimationArray();
+
+__ANodiscard inline bool AMainObjectIsValid() { return AGetMainObject() != nullptr; }
+__ANodiscard inline bool APvzBaseIsValid() { return AGetPvzBase() != nullptr; }
 
 
 #endif

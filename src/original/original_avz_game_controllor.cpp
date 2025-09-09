@@ -57,7 +57,7 @@ void __AGameControllor::SetAdvancedPause(bool isAdvancedPaused, bool isPlaySound
     if (this->isAdvancedPaused == isAdvancedPaused) {
         return;
     }
-    if (isAdvancedPaused && APvzBase_GameUi() != 3) {
+    if (isAdvancedPaused && AGetPvzBase()->GameUi() != 3) {
         aLogger->Error("高级暂停仅能在战斗界面使用");
         return;
     }
