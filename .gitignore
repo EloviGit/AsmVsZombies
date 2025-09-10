@@ -5,3 +5,5 @@ build/
 MinGW/
 scripts/
 tutorial/draft/
+lib/build/
+lib/debug*
