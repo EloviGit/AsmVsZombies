@@ -14,26 +14,42 @@ public:
     // key 1: left click
     // key -1: right click
     // key 3: middle click
+    // 仅当界面是战斗界面时起效。
+    // 关卡界面内的鼠标按下，其中 theClickCount 的取值范围为：
+    // { -2(右键双击), -1(右键), 1(左键), 2(左键双击), 3(中键) }。
+    // support: original
     static void ClickScene(AMainObject* level, int x, int y, int key);
 
+    // 控件管理器鼠标按下，自身触发 MousePosition，然后记录鼠标按下的情况，并令按下的控件触发 MouseDown。
+    // 此函数 与 MouseDown 功能相同。
+    // support: original
     static void Click(AMouseWindow* mw, int x, int y, int key);
 
+    // 尝试保存关卡存档。包括创建存档文件、暂停背景音乐、写入存档文件、保存生存模式记录等事件。
+    // support: original
     static void SaveData();
 
+    // 停止所有音乐，尝试读取当前关卡的存档，若读取成功则在关卡界面内显示继续游戏的对话。
+    // support: original
     static void LoadData();
 
     // 进入战斗页面，开始游戏
+    // 关闭选卡界面，根据选择的选卡设置卡槽中每张卡牌的类型及冷却状态等，并在关卡过场中结束选卡阶段。
     static void Rock();
 
+    // 在(x, y)处按下鼠标键key，松开，然后回到原位置
     static void MouseClick(int x, int y, int key);
 
     // 鼠标按下
+    // 控件管理器鼠标按下，自身触发 MousePosition，然后记录鼠标按下的情况，并令按下的控件触发 MouseDown。
     static void MouseDown(int x, int y, int key);
 
     // 鼠标松开
+    // 控件管理器鼠标松开，令原先鼠标按住的控件触发 MouseUp，然后自身触发 MousePosition。
     static void MouseUp(int x, int y, int key);
 
     // 移动鼠标
+    // 控件管理器鼠标移动，若当前鼠标处于按下状态，则自身触发 MouseDrag，否则自身触发 MousePosition。
     static void MouseMove(int x, int y);
 
     // 发射炮

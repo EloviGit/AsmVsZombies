@@ -6,6 +6,8 @@
 #include HEADER_SHARED(avz_pvz_struct.h)
 #include <unordered_set>
 
+// Fire, RoofFile are weakly platform independent;
+// others are strongly platform dependent.
 
 class ACobManager : public AOrderedBeforeScriptHook<-1> {
     __ADeleteCopyAndMove(ACobManager);

@@ -4,6 +4,8 @@
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_logger.h)
 
+// AShovel is weakly platform dependent;
+// AClick functions are strongly platform dependent (but not interface)
 
 struct AShovelPosition {
     int row;
