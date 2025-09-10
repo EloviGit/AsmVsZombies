@@ -8,10 +8,10 @@
 #define __ASTR(x)                       __ASTR_IMPL_(x)
 // Given x, check if __x expands to empty.
 #define __AIS_VALID_IMPL2_(_1, _2, ...)     _2
-#define __AIS_VALID_IMPL1_(...)             __AIS_VALID_IMPL2_(__VA_ARGS__ __VA_OPT__(,) false, true)
-#define __AIS_VALID(x)                      __AIS_VALID_IMPL1_(x)
+#define __AIS_VALID_IMPL1_(...)         __AIS_VALID_IMPL2_(__VA_ARGS__ __VA_OPT__(,) false, true)
+#define __AIS_VALID(x)                  __AIS_VALID_IMPL1_(x)
 // Generate new filename: (id, header) -> id/id_header
-#define __ANEW_FILENAME(id, header)                 __ASTR(id/__AJOIN(id, header))
+#define __AFILE(id, header)             __ASTR(id/__AJOIN(id, header))
 
 // Strong platform dependent: this feature is not visible in all platforms.
 // Weak platform dependent: this feature share the same signature, but implemented in different ways.
@@ -32,11 +32,11 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
 #define __ORIGINAL_str                      original                                            //
 #define __ORIGINAL                                                                              //
-#define HEADER_ORIGINAL(header)             __ANEW_FILENAME(__ORIGINAL_str, header)             //
+#define HEADER_ORIGINAL(header)             __AFILE(__ORIGINAL_str, header)             //
                                                                                                 //
 #define __PVZ_EMULATOR_str                  pvz_emulator                                        //
 #define __PVZ_EMULATOR                                                                          //
-#define HEADER_PVZ_EMULATOR(header)         __ANEW_FILENAME(__PVZ_EMULATOR_str, header)         //
+#define HEADER_PVZ_EMULATOR(header)         __AFILE(__PVZ_EMULATOR_str, header)         //
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // Define all supported platforms above. Do not modify outside this block.                      //
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,8 +53,8 @@
 #endif
 
 #define __PLATFORM_str                      __AJOIN(_, __AJOIN(PLATFORM, str))
-#define HEADER_PLATFORM(header)             __ANEW_FILENAME(__PLATFORM_str, header)
-#define HEADER_SHARED(header)               __ANEW_FILENAME(shared, header)
+#define HEADER_PLATFORM(header)             __AFILE(__PLATFORM_str, header)
+#define HEADER_SHARED(header)               __AFILE(shared, header)
 
 // Concatenate type name and platform identifier
 #define __ATypeP(Name, Platform)            __AJOIN(Name, Platform)
