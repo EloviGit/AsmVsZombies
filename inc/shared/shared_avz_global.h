@@ -3,7 +3,6 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_exception.h)
-#include HEADER_SHARED(avz_types.h)
 #include <Windows.h>
 #include <algorithm>
 #include <map>

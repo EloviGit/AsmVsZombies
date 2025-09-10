@@ -3,7 +3,6 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_tick_runner.h)
-#include HEADER_SHARED(avz_pvz_struct.h)
 
 // ACard is weakly platform dependent;
 // SelectCards is strongly platform dependent (but not interface);

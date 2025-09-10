@@ -2,7 +2,6 @@
 #define __SHARED_AVZ_ITERATOR_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_global.h)
 #include HEADER_SHARED(avz_memory.h)
 #include HEADER_PLATFORM(avz_pvz_struct.h)
 

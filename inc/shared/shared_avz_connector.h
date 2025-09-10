@@ -2,7 +2,6 @@
 #define __SHARED_AVZ_CONNECTOR_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_coroutine.h)
 #include HEADER_SHARED(avz_tick_runner.h)
 
 

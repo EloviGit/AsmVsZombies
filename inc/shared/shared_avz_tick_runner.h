@@ -3,7 +3,6 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_coroutine.h)
-#include HEADER_SHARED(avz_logger.h)
 #include <array>
 
 

@@ -3,7 +3,7 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_logger.h)
-#include HEADER_ORIGINAL(avz_memory.h)
+#include HEADER_SHARED(avz_memory.h)
 
 // This file is strongly platform dependent.
 

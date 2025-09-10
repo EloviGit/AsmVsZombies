@@ -3,7 +3,7 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_tick_runner.h)
-#include HEADER_ORIGINAL(avz_memory.h)
+#include HEADER_SHARED(avz_memory.h)
 #include <algorithm>
 #include <atomic>
 #include <map>

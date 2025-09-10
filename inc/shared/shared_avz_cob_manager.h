@@ -3,7 +3,6 @@
 
 #include "avz_multi_platform.h"
 #include HEADER_SHARED(avz_tick_runner.h)
-#include HEADER_SHARED(avz_pvz_struct.h)
 #include <unordered_set>
 
 // Fire, RoofFile are weakly platform independent;
