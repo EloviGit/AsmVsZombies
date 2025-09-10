@@ -2,8 +2,8 @@
 #define __SHARED_AVZ_COROUTINE_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_time_queue.h)
-#include HEADER_SHARED(avz_logger.h)
+#include FILE_SHARED(avz_time_queue.h)
+#include FILE_SHARED(avz_logger.h)
 #include <coroutine>
 #include <unordered_set>
 #include <memory>

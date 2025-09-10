@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_STATE_HOOK_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_global.h)
+#include FILE_SHARED(avz_global.h)
 
 
 #define __ADefineHookClass(HookName)                                                      \

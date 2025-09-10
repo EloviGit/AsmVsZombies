@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_PVZ_STRUCT_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_types.h)
+#include FILE_SHARED(avz_types.h)
 #include <Windows.h>
 #include <cstdint>
 #include <type_traits>

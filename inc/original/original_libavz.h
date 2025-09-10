@@ -2,14 +2,14 @@
 #define __ORIGINAL_LIBAVZ_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(libavz.h)
+#include FILE_SHARED(libavz.h)
 
-#include HEADER_ORIGINAL(avz_connector.h)
-#include HEADER_ORIGINAL(avz_game_controllor.h)
-#include HEADER_ORIGINAL(avz_memory.h)
-#include HEADER_ORIGINAL(avz_pvz_struct.h)
-#include HEADER_ORIGINAL(avz_replay.h)
-#include HEADER_ORIGINAL(avz_script.h)
+#include FILE_ORIGINAL(avz_connector.h)
+#include FILE_ORIGINAL(avz_game_controllor.h)
+#include FILE_ORIGINAL(avz_memory.h)
+#include FILE_ORIGINAL(avz_pvz_struct.h)
+#include FILE_ORIGINAL(avz_replay.h)
+#include FILE_ORIGINAL(avz_script.h)
 
 inline AItemCollector aItemCollector;
 inline AIceFiller aIceFiller;

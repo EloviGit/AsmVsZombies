@@ -2,8 +2,8 @@
 #define __ORIGINAL_AVZ_SCRIPT_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_asm.h)
-#include HEADER_SHARED(avz_state_hook.h)
+#include FILE_SHARED(avz_asm.h)
+#include FILE_SHARED(avz_state_hook.h)
 
 // This file is strongly platform dependent.
 

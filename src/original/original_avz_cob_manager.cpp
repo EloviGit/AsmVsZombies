@@ -1,5 +1,5 @@
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(libavz.h)
+#include FILE_ORIGINAL(libavz.h)
 
 
 std::unordered_set<int> ACobManager::_lockSet;

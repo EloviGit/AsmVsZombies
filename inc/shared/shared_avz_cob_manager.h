@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_COB_MANAGER_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_tick_runner.h)
+#include FILE_SHARED(avz_tick_runner.h)
 #include <unordered_set>
 
 // Fire, RoofFile are weakly platform independent;

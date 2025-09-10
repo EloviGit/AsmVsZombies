@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_CLICK_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_logger.h)
+#include FILE_SHARED(avz_logger.h)
 
 // AShovel is weakly platform dependent;
 // AClick functions are strongly platform dependent (but not interface)

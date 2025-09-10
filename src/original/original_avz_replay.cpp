@@ -1,6 +1,6 @@
 
 #include "avz_multi_platform.h"
-#include HEADER_ORIGINAL(libavz.h)
+#include FILE_ORIGINAL(libavz.h)
 #include <filesystem>
 
 // This file is strongly platform dependent.

@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_LOGGER_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_painter.h)
+#include FILE_SHARED(avz_painter.h)
 #include <deque>
 #include <format>
 #include <fstream>

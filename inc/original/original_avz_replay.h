@@ -2,8 +2,8 @@
 #define __ORIGINAL_AVZ_REPLAY_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_tick_runner.h)
-#include HEADER_SHARED(avz_memory.h)
+#include FILE_SHARED(avz_tick_runner.h)
+#include FILE_SHARED(avz_memory.h)
 #include <algorithm>
 #include <atomic>
 #include <map>

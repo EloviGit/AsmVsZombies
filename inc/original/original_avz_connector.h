@@ -2,8 +2,8 @@
 #define __ORIGINAL_AVZ_CONNECTOR_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_connector.h)
-#include HEADER_ORIGINAL(avz_pvz_struct.h)
+#include FILE_SHARED(avz_connector.h)
+#include FILE_ORIGINAL(avz_pvz_struct.h)
 
 // This file(part) is strongly platform dependent.
 

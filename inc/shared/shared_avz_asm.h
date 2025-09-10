@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_ASM_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_pvz_struct.h)
+#include FILE_SHARED(avz_pvz_struct.h)
 
 // This file is weakly or strongly platform dependent,
 // but the signatures are weakly platform dependent.

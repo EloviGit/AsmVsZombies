@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_CARD_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_tick_runner.h)
+#include FILE_SHARED(avz_tick_runner.h)
 
 // ACard is weakly platform dependent;
 // SelectCards is strongly platform dependent (but not interface);

@@ -2,8 +2,8 @@
 #define __AVZ_MEMORY_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_state_hook.h)
-#include HEADER_SHARED(avz_pvz_struct.h)
+#include FILE_SHARED(avz_state_hook.h)
+#include FILE_SHARED(avz_pvz_struct.h)
 
 
 // 返回鼠标所在行

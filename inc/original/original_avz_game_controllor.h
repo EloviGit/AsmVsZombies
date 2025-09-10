@@ -2,8 +2,8 @@
 #define __ORIGINAL_AVZ_GAME_CONTROLLOR_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_logger.h)
-#include HEADER_SHARED(avz_memory.h)
+#include FILE_SHARED(avz_logger.h)
+#include FILE_SHARED(avz_memory.h)
 
 // This file is strongly platform dependent.
 

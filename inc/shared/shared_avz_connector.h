@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_CONNECTOR_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_tick_runner.h)
+#include FILE_SHARED(avz_tick_runner.h)
 
 
 class ATimeConnectHandle {

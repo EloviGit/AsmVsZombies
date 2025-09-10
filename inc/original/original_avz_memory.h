@@ -2,7 +2,7 @@
 #define __ORIGINAL_AVZ_MEMORY_H__
 
 #include "avz_multi_platform.h"
-#include  HEADER_SHARED(avz_memory.h)
+#include  FILE_SHARED(avz_memory.h)
 
 // This file(part) is strongly platform dependent.
 

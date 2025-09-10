@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_EXCEPTION_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_types.h)
+#include FILE_SHARED(avz_types.h)
 #include <exception>
 #include <string>
 

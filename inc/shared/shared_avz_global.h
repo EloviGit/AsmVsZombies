@@ -2,7 +2,7 @@
 #define __SHARED_AVZ_GLOBAL_H__
 
 #include "avz_multi_platform.h"
-#include HEADER_SHARED(avz_exception.h)
+#include FILE_SHARED(avz_exception.h)
 #include <Windows.h>
 #include <algorithm>
 #include <map>
