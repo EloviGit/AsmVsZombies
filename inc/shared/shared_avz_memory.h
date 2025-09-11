@@ -200,8 +200,8 @@ inline void ASetGameSpeed(float x) {
 }
 
 // 女仆秘籍 前向声明，具体声明及定义在各平台头文件中
-class __ATypeP(AMaidCheats, __PLATFORM_str);
-using AMaidCheats = __ATypeP(AMaidCheats, __PLATFORM_str);
+class ATypeP(AMaidCheats, PLATFORM);
+using AMaidCheats = ATypeP(AMaidCheats, PLATFORM);
 
 // 判断游戏是否暂停
 bool AGameIsPaused();

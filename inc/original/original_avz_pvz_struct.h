@@ -10,12 +10,14 @@
 // This file(part) is strongly platform dependent.
 // Outside this file, APvzStructs are used in a weak platform dependent way.
 
-__APvzStruct_ForwardDeclare(__ORIGINAL_str)
+__APvzStruct_ForwardDeclare(ORIGINAL)
 
-__APvzStruct_DefineBase(APvzStruct, __ORIGINAL_str);
+struct ATypeP(APvzStruct, ORIGINAL) : public APvzStruct {
+    protected: __APvzStruct_UsingShortName(ORIGINAL);
+};
 
 // 游戏基址
-__APvzStruct_DefineStruct(APvzBase, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(APvzBase, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     // 当前游戏信息和对象
@@ -75,7 +77,7 @@ public:
 };
 
 // 当前游戏信息和对象
-__APvzStruct_DefineStruct(AMainObject, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AMainObject, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 protected:
     uint8_t _data[0x57b0];
@@ -306,7 +308,7 @@ public:
 };
 
 // 动画主要属性
-__APvzStruct_DefineStruct(AAnimationMain, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AAnimationMain, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     // 动画偏移
@@ -316,7 +318,7 @@ public:
 };
 
 // 动画偏移属性
-__APvzStruct_DefineStruct(AAnimationOffset, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AAnimationOffset, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     // 动画内存数组
@@ -326,7 +328,7 @@ public:
 };
 
 // 动画属性
-__APvzStruct_DefineStruct(AAnimation, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AAnimation, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 protected:
     uint8_t _data[0xa0];
@@ -339,7 +341,7 @@ public:
 };
 
 // 植物内存属性
-__APvzStruct_DefineStruct(APlant, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(APlant, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 protected:
     uint8_t _data[0x14c];
@@ -496,7 +498,7 @@ public:
 };
 
 // 僵尸内存属性
-__APvzStruct_DefineStruct(AZombie, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AZombie, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 protected:
     uint8_t _data[0x15c];
@@ -678,7 +680,7 @@ public:
 };
 
 // 种子 / 卡牌 属性
-__APvzStruct_DefineStruct(ASeed, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(ASeed, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 protected:
     uint8_t _data[0x50];
@@ -744,7 +746,7 @@ public:
 };
 
 // 收集物品属性
-__APvzStruct_DefineStruct(AItem, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AItem, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 protected:
     uint8_t _data[0xd8];
@@ -792,7 +794,7 @@ public:
 };
 
 // 场地物品属性
-__APvzStruct_DefineStruct(APlaceItem, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(APlaceItem, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 protected:
     uint8_t _data[0xec];
@@ -839,7 +841,7 @@ public:
     }
 };
 
-__APvzStruct_DefineStruct(ATopMouseWindow, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(ATopMouseWindow, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     // 窗口类型(1图鉴,2暂停,3是否,4商店等,6用户管理,8菜单)
@@ -852,7 +854,7 @@ public:
     }
 };
 
-__APvzStruct_DefineStruct(AMouseWindow, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AMouseWindow, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     __ANodiscard ATopMouseWindow* TopWindow() noexcept {
@@ -872,7 +874,7 @@ public:
     }
 };
 
-__APvzStruct_DefineStruct(ASelectCardUi_m, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(ASelectCardUi_m, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     __ANodiscard int& OrizontalScreenOffset() noexcept {
@@ -884,7 +886,7 @@ public:
     }
 };
 
-__APvzStruct_DefineStruct(ASelectCardUi_p, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(ASelectCardUi_p, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     __ANodiscard ALetsRockBtn* LetsRockBtn() noexcept {
@@ -902,7 +904,7 @@ public:
     }
 };
 
-__APvzStruct_DefineStruct(ALetsRockBtn, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(ALetsRockBtn, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     __ANodiscard bool& IsUnusable() noexcept {
@@ -910,7 +912,7 @@ public:
     }
 };
 
-__APvzStruct_DefineStruct(AMouse, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AMouse, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     // 鼠标上物品的类型
@@ -927,7 +929,7 @@ public:
     }
 };
 
-__APvzStruct_DefineStruct(AMouseExtra, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AMouseExtra, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     __ANodiscard int& Row() noexcept {
@@ -935,7 +937,7 @@ public:
     }
 };
 
-__APvzStruct_DefineStruct(AWords, __ORIGINAL_str, APvzStruct) {
+struct ATypeP(AWords, ORIGINAL) : public ATypeP(APvzStruct, ORIGINAL) {
 
 public:
     __ANodiscard int& DisappearCountdown() noexcept {

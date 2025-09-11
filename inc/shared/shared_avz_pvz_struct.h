@@ -115,60 +115,51 @@ __ANodiscard T AMVal(uintptr_t first, Others... others) noexcept {
 
 
 #define __APvzStruct_UsingShortName(Platform)                           \
-using APvzBase = __ATypeP(APvzBase, Platform);                          \
-using AMainObject = __ATypeP(AMainObject, Platform);                    \
-using APlant = __ATypeP(APlant, Platform);                              \
-using AZombie = __ATypeP(AZombie, Platform);                            \
-using ASeed = __ATypeP(ASeed, Platform);                                \
-using AItem = __ATypeP(AItem, Platform);                                \
-using APlaceItem = __ATypeP(APlaceItem, Platform);                      \
-using AMouseWindow = __ATypeP(AMouseWindow, Platform);                  \
-using ATopMouseWindow = __ATypeP(ATopMouseWindow, Platform);            \
-using ALetsRockBtn = __ATypeP(ALetsRockBtn, Platform);                  \
-using ASelectCardUi_m = __ATypeP(ASelectCardUi_m, Platform);            \
-using ASelectCardUi_p = __ATypeP(ASelectCardUi_p, Platform);            \
-using AMouse = __ATypeP(AMouse, Platform);                              \
-using AMouseExtra = __ATypeP(AMouseExtra, Platform);                    \
-using AWords = __ATypeP(AWords, Platform);                              \
-using AAnimationMain = __ATypeP(AAnimationMain, Platform);              \
-using AAnimationOffset = __ATypeP(AAnimationOffset, Platform);          \
-using AAnimation = __ATypeP(AAnimation, Platform);                      \
-using ACardSlot = __ATypeP(ACardSlot, Platform);
+using APvzBase = ATypeP(APvzBase, Platform);                            \
+using AMainObject = ATypeP(AMainObject, Platform);                      \
+using APlant = ATypeP(APlant, Platform);                                \
+using AZombie = ATypeP(AZombie, Platform);                              \
+using ASeed = ATypeP(ASeed, Platform);                                  \
+using AItem = ATypeP(AItem, Platform);                                  \
+using APlaceItem = ATypeP(APlaceItem, Platform);                        \
+using AMouseWindow = ATypeP(AMouseWindow, Platform);                    \
+using ATopMouseWindow = ATypeP(ATopMouseWindow, Platform);              \
+using ALetsRockBtn = ATypeP(ALetsRockBtn, Platform);                    \
+using ASelectCardUi_m = ATypeP(ASelectCardUi_m, Platform);              \
+using ASelectCardUi_p = ATypeP(ASelectCardUi_p, Platform);              \
+using AMouse = ATypeP(AMouse, Platform);                                \
+using AMouseExtra = ATypeP(AMouseExtra, Platform);                      \
+using AWords = ATypeP(AWords, Platform);                                \
+using AAnimationMain = ATypeP(AAnimationMain, Platform);                \
+using AAnimationOffset = ATypeP(AAnimationOffset, Platform);            \
+using AAnimation = ATypeP(AAnimation, Platform);                        \
+using ACardSlot = ATypeP(ACardSlot, Platform);
 // Using short name for platform independent code.
 
 #define __APvzStruct_ForwardDeclare(Platform)                           \
-struct __ATypeP(APvzBase, Platform);                                    \
-struct __ATypeP(AMainObject, Platform);                                 \
-struct __ATypeP(APlant, Platform);                                      \
-struct __ATypeP(AZombie, Platform);                                     \
-struct __ATypeP(ASeed, Platform);                                       \
-struct __ATypeP(AItem, Platform);                                       \
-struct __ATypeP(APlaceItem, Platform);                                  \
-struct __ATypeP(AMouseWindow, Platform);                                \
-struct __ATypeP(ATopMouseWindow, Platform);                             \
-struct __ATypeP(ALetsRockBtn, Platform);                                \
-struct __ATypeP(ASelectCardUi_m, Platform);                             \
-struct __ATypeP(ASelectCardUi_p, Platform);                             \
-struct __ATypeP(AMouse, Platform);                                      \
-struct __ATypeP(AMouseExtra, Platform);                                 \
-struct __ATypeP(AWords, Platform);                                      \
-struct __ATypeP(AAnimationMain, Platform);                              \
-struct __ATypeP(AAnimationOffset, Platform);                            \
-struct __ATypeP(AAnimation, Platform);                                  \
-struct __ATypeP(ACardSlot, Platform);
+struct ATypeP(APvzBase, Platform);                                      \
+struct ATypeP(AMainObject, Platform);                                   \
+struct ATypeP(APlant, Platform);                                        \
+struct ATypeP(AZombie, Platform);                                       \
+struct ATypeP(ASeed, Platform);                                         \
+struct ATypeP(AItem, Platform);                                         \
+struct ATypeP(APlaceItem, Platform);                                    \
+struct ATypeP(AMouseWindow, Platform);                                  \
+struct ATypeP(ATopMouseWindow, Platform);                               \
+struct ATypeP(ALetsRockBtn, Platform);                                  \
+struct ATypeP(ASelectCardUi_m, Platform);                               \
+struct ATypeP(ASelectCardUi_p, Platform);                               \
+struct ATypeP(AMouse, Platform);                                        \
+struct ATypeP(AMouseExtra, Platform);                                   \
+struct ATypeP(AWords, Platform);                                        \
+struct ATypeP(AAnimationMain, Platform);                                \
+struct ATypeP(AAnimationOffset, Platform);                              \
+struct ATypeP(AAnimation, Platform);                                    \
+struct ATypeP(ACardSlot, Platform);
 // Forward declare all structs
 
-#define __APvzStruct_DefineBase(Base, Platform)                         \
-struct __ATypeP(Base, Platform) : public Base {                         \
-protected: __APvzStruct_UsingShortName(Platform); };
-// Define struct base: APvzStruct_Platform : APvzStruct
-
-#define __APvzStruct_DefineStruct(Name, Platform, Base)                 \
-struct __ATypeP(Name, Platform): public __ATypeP(Base, Platform)
-// Define struct with base: AXXX_Platform : APvzStruct_Platform
-
-__APvzStruct_ForwardDeclare(__PLATFORM_str)
-__APvzStruct_UsingShortName(__PLATFORM_str)
+__APvzStruct_ForwardDeclare(PLATFORM)
+__APvzStruct_UsingShortName(PLATFORM)
 
 __ANodiscard APvzBase* AGetPvzBase();
 __ANodiscard AMainObject* AGetMainObject();

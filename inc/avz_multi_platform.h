@@ -52,7 +52,7 @@
 #define PLATFORM                        ORIGINAL
 #endif
 
-// Check if PLATFORM is a defined platform above:
+// Check if PLATFORM is a defined platform:
 // by checking if __PLATFORM expands to empty.
 #if !__AIS_VALID(__AJOIN(_, PLATFORM))
 #error "Unrecognized PLATFORM!"
@@ -63,6 +63,6 @@
 #define FILE_SHARED(header)             __AFILE(shared, header)
 
 // Concatenate type name and platform identifier
-#define __ATypeP(Name, Platform)        __AJOIN(Name, Platform)
+#define ATypeP(Name, Platform)          __AJOIN(Name, __AJOIN(_, __AJOIN(Platform, str)))
 
 #endif

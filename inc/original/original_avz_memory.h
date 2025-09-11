@@ -7,7 +7,7 @@
 // This file(part) is strongly platform dependent.
 
 // 女仆秘籍
-class __ATypeP(AMaidCheats, __ORIGINAL_str) : public AOrderedExitFightHook<-1> {
+class ATypeP(AMaidCheats, ORIGINAL) : public AOrderedExitFightHook<-1> {
 public:
     // MC 前缀是 machine code 的缩写
     static constexpr uint32_t MC_CALL_PARTNER = 0x00F0B890;
