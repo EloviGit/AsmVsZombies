@@ -15,10 +15,14 @@
 #include "system/endgame.h"
 #include "system/griditem.h"
 
+class APvzEmulatorBridge;
+
 namespace pvz_emulator {
 
 class world
 {
+	friend class ::APvzEmulatorBridge;
+
 public:
 	object::scene scene;
 

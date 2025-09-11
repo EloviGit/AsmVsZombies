@@ -5,9 +5,12 @@
 #include<cassert>
 #include<array>
 
+class APvzEmulatorBridge;
+
 namespace pvz_emulator::object {
 
 template<typename T, size_t S> class obj_list {
+	friend class APvzEmulatorBridge;
 	class obj_wrap {
 	protected:
 		T t;

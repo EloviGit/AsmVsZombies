@@ -10,7 +10,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 add_library(compile_options INTERFACE)
 target_compile_options(compile_options INTERFACE -fexperimental-library)
-target_include_directories(compile_options INTERFACE inc src)
+target_include_directories(compile_options INTERFACE inc src lib)
 
 aux_source_directory(src/shared shared_srcs)
 aux_source_directory(src avz_srcs)
@@ -19,12 +19,14 @@ aux_source_directory(src/minhook minhook_srcs)
 # build libavz under original pvz
 add_library(avz_original ${avz_srcs} ${shared_srcs} ${minhook_srcs})
 target_link_libraries(avz_original PRIVATE compile_options)
-target_compile_definitions(avz_original PRIVATE -DPLATFORM_ORIGINAL)
+target_compile_definitions(avz_original PRIVATE -DPLATFORM=ORIGINAL)
 
-# # build libavz under pvz-emulator
-# add_library(avz_pvz_emulator STATIC ${avz_srcs} ${minhook_srcs})
-# target_link_libraries(avz_pvz_emulator PRIVATE compile_options)
-# target_compile_definitions(avz_pvz_emulator PRIVATE -DPLATFORM_PVZ_EMULATOR)
+add_subdirectory(lib)
+
+# build libavz under pvz-emulator
+add_library(avz_pvz_emulator STATIC ${avz_srcs} ${shared_srcs} ${minhook_srcs})
+target_link_libraries(avz_pvz_emulator PRIVATE compile_options pvzemu)
+target_compile_definitions(avz_pvz_emulator PRIVATE -DPLATFORM=PVZ_EMULATOR)
 
 # build injector
 add_subdirectory(tools/injector)

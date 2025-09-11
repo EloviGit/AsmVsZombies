@@ -58,11 +58,11 @@
 #error "Unrecognized PLATFORM!"
 #endif
 
-#define __PLATFORM_str                      __AJOIN(_, __AJOIN(PLATFORM, str))
-#define FILE_PLATFORM(header)             __AFILE(__PLATFORM_str, header)
-#define FILE_SHARED(header)               __AFILE(shared, header)
+#define __PLATFORM_str                  __AJOIN(_, __AJOIN(PLATFORM, str))
+#define FILE_PLATFORM(header)           __AFILE(__PLATFORM_str, header)
+#define FILE_SHARED(header)             __AFILE(shared, header)
 
 // Concatenate type name and platform identifier
-#define __ATypeP(Name, Platform)            __AJOIN(Name, Platform)
+#define __ATypeP(Name, Platform)        __AJOIN(Name, Platform)
 
 #endif
